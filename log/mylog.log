@@ -1,0 +1,255 @@
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=82 cap=2048: 00 00 00 4E AC ED 00 05 73 72 01 00 19 70 72 6F...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=82 cap=2048: 00 00 00 4E AC ED 00 05 73 72 01 00 19 70 72 6F...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=82 cap=2048: 00 00 00 4E AC ED 00 05 73 72 01 00 19 70 72 6F...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=82 cap=2048: 00 00 00 4E AC ED 00 05 73 72 01 00 19 70 72 6F...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=110 cap=2048: 00 00 00 6A AC ED 00 05 73 72 01 00 27 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=110 cap=2048: 00 00 00 6A AC ED 00 05 73 72 01 00 27 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=214 cap=2048: 00 00 00 D2 AC ED 00 05 73 72 01 00 30 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=214 cap=2048: 00 00 00 D2 AC ED 00 05 73 72 01 00 30 64 61 74...]
+WARN NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "cvunique"
+  Dettaglio: Key (nomeindirizzo, comune, numero, qualificatore)=(Prova indirizzo, Milano, 20, via) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2552)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2284)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:164)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130)
+	at database.DBHelper.insertCV(DBHelper.java:55)
+	at server.ConnectionHandler.messageReceived(ConnectionHandler.java:25)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.logging.LoggingFilter.messageReceived(LoggingFilter.java:208)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=385 cap=2048: 00 00 01 7D AC ED 00 05 73 72 01 00 38 64 61 74...]
+WARN NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
+java.lang.NullPointerException
+	at server.Prettier.normalizeKey(Prettier.java:16)
+	at server.ConnectionHandler.messageReceived(ConnectionHandler.java:31)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.logging.LoggingFilter.messageReceived(LoggingFilter.java:208)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=214 cap=2048: 00 00 00 D2 AC ED 00 05 73 72 01 00 30 64 61 74...]
+WARN NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "cvunique"
+  Dettaglio: Key (nomeindirizzo, comune, numero, qualificatore)=(Prova indirizzo, Milano, 20, via) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2552)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2284)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:164)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130)
+	at database.DBHelper.insertCV(DBHelper.java:55)
+	at server.ConnectionHandler.messageReceived(ConnectionHandler.java:25)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.logging.LoggingFilter.messageReceived(LoggingFilter.java:208)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=385 cap=2048: 00 00 01 7D AC ED 00 05 73 72 01 00 38 64 61 74...]
+WARN NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
+org.postgresql.util.PSQLException: ERROR: insert or update on table "vaccinazione" violates foreign key constraint "vaccinazione_centrovaccinaleid_fkey"
+  Dettaglio: Key (centrovaccinaleid)=(7) is not present in table "centrovaccinale".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2552)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2284)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:164)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130)
+	at database.DBHelper.insertVaccination(DBHelper.java:88)
+	at server.ConnectionHandler.messageReceived(ConnectionHandler.java:33)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.logging.LoggingFilter.messageReceived(LoggingFilter.java:208)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=214 cap=2048: 00 00 00 D2 AC ED 00 05 73 72 01 00 30 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=385 cap=2048: 00 00 01 7D AC ED 00 05 73 72 01 00 38 64 61 74...]
+WARN NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
+org.postgresql.util.PSQLException: ERROR: insert or update on table "vaccinazione" violates foreign key constraint "vaccinazione_centrovaccinaleid_fkey"
+  Dettaglio: Key (centrovaccinaleid)=(7) is not present in table "centrovaccinale".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2552)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2284)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:164)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130)
+	at database.DBHelper.insertVaccination(DBHelper.java:91)
+	at server.ConnectionHandler.messageReceived(ConnectionHandler.java:33)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.logging.LoggingFilter.messageReceived(LoggingFilter.java:208)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=214 cap=2048: 00 00 00 D2 AC ED 00 05 73 72 01 00 30 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=385 cap=2048: 00 00 01 7D AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=216 cap=2048: 00 00 00 D4 AC ED 00 05 73 72 01 00 30 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=387 cap=2048: 00 00 01 7F AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=316 cap=2048: 00 00 01 38 AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - CLOSED
