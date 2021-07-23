@@ -85,7 +85,8 @@ public class DBHelper {
         statement.setInt(3, vaccinazione.getVaccino().getId());
         statement.setInt(4, vaccinazione.getCentroVaccinale().getId());
         statement.setString(5, v.getCodiceFiscale());
-        if(statement.executeUpdate() > 0) return codice; else return null;
+        if (statement.executeUpdate() > 0) return codice;
+        else return null;
     }
 
     public boolean insertVaccine(Vaccino v) throws SQLException {
@@ -115,21 +116,23 @@ public class DBHelper {
             statement.setInt(4, ev.getCentroVaccinale().getId());
             statement.setInt(5, ev.getVaccino().getId());
             return statement.executeUpdate() > 0;
+        } catch (Exception ex) {
+            return false;
         }
-        catch(Exception ex){ return false; }
     }
 
     public boolean registerUser(Vaccinato vaccinato, String chiave) throws SQLException {
         //Controllo che la chiave sia la stessa della vaccinazione
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccinazione WHERE id=?");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccinazione WHERE id=? AND vaccinatocodicefiscale = ?");
         statement.setString(1, chiave);
+        statement.setString(2, vaccinato.getCodiceFiscale());
         ResultSet result = statement.executeQuery();
         if (!result.next()) return false; //Tentativo di registrare un cittadino senza avere fatto una vaccinazione
         //Registro l'utente solo se non si è già registrato prima
         statement = connection.prepareStatement("SELECT * FROM vaccinato WHERE codicefiscale = ? AND userid IS NOT NULL");
         statement.setString(1, vaccinato.getCodiceFiscale());
         result = statement.executeQuery();
-        if(result.next()) return false; //Cittadino già registrato
+        if (result.next()) return false; //Cittadino già registrato
         statement = connection.prepareStatement("UPDATE vaccinato SET userid = ?, email = ?, password = ? WHERE codicefiscale = ?");
         statement.setString(1, vaccinato.getUserId());
         statement.setString(2, vaccinato.getEmail());
@@ -143,12 +146,13 @@ public class DBHelper {
         }
     }
 
-    public boolean login(String username, String password) throws SQLException {
+    public Vaccinato login(String username, String password) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccinato WHERE userid = ? AND password = ?");
         statement.setString(1, username);
         statement.setString(2, Crypter.sha256(password));
         ResultSet result = statement.executeQuery();
-        return result.next();
+        if (!result.next()) return null;
+        return getVaccinatedFromResult(result);
     }
 
     private CentroVaccinale getCVFromResult(ResultSet result) throws SQLException {
@@ -165,11 +169,21 @@ public class DBHelper {
         return cv;
     }
 
-    public List<CentroVaccinale> getCV() throws SQLException{
+    private Vaccinato getVaccinatedFromResult(ResultSet result) throws SQLException{
+        Vaccinato v = new Vaccinato();
+        v.setCodiceFiscale(result.getString(1));
+        v.setNome(result.getString(2));
+        v.setCognome(result.getString(3));
+        v.setUserId(result.getString(4));
+        v.setEmail(result.getString(5));
+        return v;
+    }
+
+    public List<CentroVaccinale> getCV() throws SQLException {
         List<CentroVaccinale> list = new ArrayList<>();
         Statement statement = connection.createStatement();
         ResultSet result = statement.executeQuery("SELECT * FROM centrovaccinale;");
-        while(result.next()){
+        while (result.next()) {
             CentroVaccinale cv = getCVFromResult(result);
             list.add(cv);
         }
@@ -181,20 +195,20 @@ public class DBHelper {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE nome LIKE '%' || ? || '%'");
         statement.setString(1, nome);
         ResultSet result = statement.executeQuery();
-        while(result.next()){
+        while (result.next()) {
             CentroVaccinale cv = getCVFromResult(result);
             list.add(cv);
         }
         return list;
     }
 
-    public List<CentroVaccinale> getCV(String comune, String tipologia) throws SQLException{
+    public List<CentroVaccinale> getCV(String comune, String tipologia) throws SQLException {
         List<CentroVaccinale> list = new ArrayList<>();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE comune = ? AND tipologia = ?");
         statement.setString(1, comune);
         statement.setString(2, tipologia);
         ResultSet result = statement.executeQuery();
-        while(result.next()){
+        while (result.next()) {
             CentroVaccinale cv = getCVFromResult(result);
             list.add(cv);
         }
@@ -206,7 +220,7 @@ public class DBHelper {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE id = ?;");
         statement.setInt(1, id);
         ResultSet result = statement.executeQuery();
-        if(!result.next()) return null;
+        if (!result.next()) return null;
         cv = getCVFromResult(result);
         return cv;
     }
@@ -216,19 +230,42 @@ public class DBHelper {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccino WHERE id = ?;");
         statement.setInt(1, id);
         ResultSet result = statement.executeQuery();
-        if(!result.next()) return null;
+        if (!result.next()) return null;
         v.setId(id);
         v.setNome(result.getString(2));
         return v;
     }
 
+    public Vaccinato getVaccinatedById(String cf) throws SQLException{
+        Vaccinato v = new Vaccinato();
+        PreparedStatement statement = connection.prepareStatement("select * from vaccinato where codicefiscale = ?");
+        statement.setString(1, cf);
+        ResultSet result = statement.executeQuery();
+        if(!result.next()) return null;
+        return getVaccinatedFromResult(result);
+    }
+
+    public Vaccinazione getVaccinationById(String key) throws SQLException{
+        Vaccinazione vaccinazione = new Vaccinazione();
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccinazione WHERE Id = ?");
+        statement.setString(1, key);
+        ResultSet result = statement.executeQuery();
+        if (!result.next()) return null;
+        vaccinazione.setId(result.getString(1));
+        vaccinazione.setDataVaccinazione(result.getDate(2));
+        vaccinazione.setVaccino(getVaccinoById(result.getInt(3)));
+        vaccinazione.setCentroVaccinale(getCVById(result.getInt(4)));
+        vaccinazione.setVaccinato(getVaccinatedById(result.getString(5)));
+        return vaccinazione;
+    }
+
     public Vaccinazione getLastVaccination(Vaccinato vaccinato) throws SQLException {
         Vaccinazione vaccinazione = new Vaccinazione();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccinazione WHERE vaccinatocodicefiscale = ? AND datavaccinazione >= ALL(SELECT datavaccinazione FROM vaccinazione WHERE vaccinatocodicefiscale = ?);");
-        statement.setString(1,vaccinato.getCodiceFiscale());
-        statement.setString(2,vaccinato.getCodiceFiscale());
+        statement.setString(1, vaccinato.getCodiceFiscale());
+        statement.setString(2, vaccinato.getCodiceFiscale());
         ResultSet result = statement.executeQuery();
-        if(!result.next()) return null;
+        if (!result.next()) return null;
         vaccinazione.setId(result.getString(1));
         vaccinazione.setDataVaccinazione(result.getDate(2));
         vaccinazione.setVaccino(getVaccinoById(result.getInt(3)));
@@ -241,7 +278,7 @@ public class DBHelper {
         List<Vaccino> vaccini = new ArrayList<>();
         Statement statement = connection.createStatement();
         ResultSet result = statement.executeQuery("SELECT * FROM vaccino;");
-        while(result.next()){
+        while (result.next()) {
             Vaccino v = new Vaccino();
             v.setId(result.getInt(1));
             v.setNome(result.getString(2));
@@ -254,7 +291,7 @@ public class DBHelper {
         List<TipologiaEventoAvverso> list = new ArrayList<>();
         Statement statement = connection.createStatement();
         ResultSet result = statement.executeQuery("SELECT * FROM tipologiaeventoavverso");
-        while(result.next()){
+        while (result.next()) {
             TipologiaEventoAvverso ev = new TipologiaEventoAvverso();
             ev.setId(result.getInt(1));
             ev.setNome(result.getString(2));
@@ -274,7 +311,7 @@ public class DBHelper {
         statement.setInt(1, cv.getId());
         ResultSet result = statement.executeQuery();
         int numEv = 0;
-        while(result.next()){
+        while (result.next()) {
             String nome = result.getString(1);
             int count = result.getInt(2);
             numEv += count;
@@ -285,7 +322,7 @@ public class DBHelper {
         statement = connection.prepareStatement("SELECT AVG(severita) FROM eventoavverso WHERE centrovaccinaleid = ?");
         statement.setInt(1, cv.getId());
         result = statement.executeQuery();
-        if(!result.next()) return null;
+        if (!result.next()) return null;
         report.setSeveritaMedia(result.getDouble(1));
         return report;
     }

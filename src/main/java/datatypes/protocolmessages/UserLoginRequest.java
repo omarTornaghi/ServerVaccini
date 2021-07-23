@@ -1,12 +1,12 @@
 package datatypes.protocolmessages;
 
-public class LoginRequest extends Packet {
+public class UserLoginRequest extends Packet {
     private static final long serialVersionUID = -8877420813199743460L;
     private String username;
     private String password;
 
-    public LoginRequest(){}
-    public LoginRequest(String username, String password){
+    public UserLoginRequest(){}
+    public UserLoginRequest(String username, String password){
         this.username = username;
         this.password = password;
     }

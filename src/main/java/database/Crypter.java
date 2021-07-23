@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 
 public class Crypter {
     public static String sha256(final String base) {
+        if(base == null) return "";
         try{
             final MessageDigest digest = MessageDigest.getInstance("SHA-256");
             final byte[] hash = digest.digest(base.getBytes(StandardCharsets.UTF_8));
