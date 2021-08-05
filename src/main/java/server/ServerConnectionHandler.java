@@ -58,7 +58,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter
             UserRegistrationRequest req = (UserRegistrationRequest) pacchetto;
             UserRegistrationResponse response;
             try {
-                boolean esito = db.registerUser(req.getVaccinato(), req.getKey());
+                boolean esito = db.registerUser(req.getVaccinato(), Prettier.normalizeKey(req.getKey()));
                 if (esito) setClientAuthenticated(session, req.getVaccinato().getCodiceFiscale());
                 response = new UserRegistrationResponse(esito);
             } catch (SQLException ex) {
@@ -138,6 +138,15 @@ public class ServerConnectionHandler extends IoHandlerAdapter
             } finally {
                 session.write(new GetCVResponse(esito, list));
             }
+            return;
+        }
+        /* OPERAZIONE LIBERA */
+        if(pacchetto instanceof GetVaccinationByKeyRequest){
+            GetVaccinationByKeyRequest req = (GetVaccinationByKeyRequest) pacchetto;
+            try{
+                session.write(new GetVaccinationByKeyResponse(true, db.getVaccinationById(Prettier.normalizeKey(req.getKey()))));
+            }
+            catch(SQLException sqlexcp){ session.write(new GetVaccinationByKeyResponse(false, null)); }
             return;
         }
         /* OPERAZIONE LIBERA */
