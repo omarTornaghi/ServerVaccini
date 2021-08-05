@@ -8,7 +8,6 @@ public class EventoAvverso implements Serializable {
     private int severita;
     private String note;
     private CentroVaccinale centroVaccinale;
-    private Vaccino vaccino;
     private TipologiaEventoAvverso tipologia;
 
     public int getId() {
@@ -41,14 +40,6 @@ public class EventoAvverso implements Serializable {
 
     public void setCentroVaccinale(CentroVaccinale centroVaccinale) {
         this.centroVaccinale = centroVaccinale;
-    }
-
-    public Vaccino getVaccino() {
-        return vaccino;
-    }
-
-    public void setVaccino(Vaccino vaccino) {
-        this.vaccino = vaccino;
     }
 
     public TipologiaEventoAvverso getTipologia() {

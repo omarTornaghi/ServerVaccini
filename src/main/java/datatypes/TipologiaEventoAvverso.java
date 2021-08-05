@@ -29,4 +29,12 @@ public class TipologiaEventoAvverso implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    @Override
+    public String toString() {
+        return "TipologiaEventoAvverso{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 }

@@ -108,13 +108,12 @@ public class DBHelper {
             if (ultimaVaccinazione == null || !(ultimaVaccinazione.getCentroVaccinale().equals(ev.getCentroVaccinale())))
                 return false; //Tentativo di registrare un ev avv su un cv diverso da dove ci si è vaccinati
             PreparedStatement statement = connection.prepareStatement("INSERT INTO eventoavverso(\n" +
-                    "\tseverita, note, tipologiaeventoavversoid, centrovaccinaleid, vaccinoid)\n" +
-                    "\tVALUES (?, ?, ?, ?, ?);");
+                    "\tseverita, note, tipologiaeventoavversoid, centrovaccinaleid)\n" +
+                    "\tVALUES (?, ?, ?, ?);");
             statement.setInt(1, ev.getSeverita());
             statement.setString(2, ev.getNote());
             statement.setInt(3, ev.getTipologia().getId());
             statement.setInt(4, ev.getCentroVaccinale().getId());
-            statement.setInt(5, ev.getVaccino().getId());
             return statement.executeUpdate() > 0;
         } catch (Exception ex) {
             return false;

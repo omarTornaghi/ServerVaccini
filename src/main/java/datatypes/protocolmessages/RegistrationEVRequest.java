@@ -1,18 +1,15 @@
 package datatypes.protocolmessages;
 
 import datatypes.EventoAvverso;
-import datatypes.Vaccinato;
 
 public class RegistrationEVRequest extends Packet{
     private EventoAvverso eventoAvverso;
-    private Vaccinato vaccinato;
 
     public RegistrationEVRequest() {
     }
 
-    public RegistrationEVRequest(EventoAvverso eventoAvverso, Vaccinato vaccinato) {
+    public RegistrationEVRequest(EventoAvverso eventoAvverso) {
         this.eventoAvverso = eventoAvverso;
-        this.vaccinato = vaccinato;
     }
 
     public EventoAvverso getEventoAvverso() {
@@ -21,14 +18,6 @@ public class RegistrationEVRequest extends Packet{
 
     public void setEventoAvverso(EventoAvverso eventoAvverso) {
         this.eventoAvverso = eventoAvverso;
-    }
-
-    public Vaccinato getVaccinato() {
-        return vaccinato;
-    }
-
-    public void setVaccinato(Vaccinato vaccinato) {
-        this.vaccinato = vaccinato;
     }
 
     @Override

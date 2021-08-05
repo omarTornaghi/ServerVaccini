@@ -1,13 +1,15 @@
 package datatypes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ReportCV {
+public class ReportCV implements Serializable {
+    private static final long serialVersionUID = -3286496988465431898L;
     private CentroVaccinale centroVaccinale; // Forse inutile
-    private Map<String, Integer> eventiAvversi;
+    private final Map<String, Integer> eventiAvversi;
     private int numEventiAvversi;
     private double severitaMedia;
 
