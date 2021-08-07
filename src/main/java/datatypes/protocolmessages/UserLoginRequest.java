@@ -1,5 +1,9 @@
 package datatypes.protocolmessages;
-
+/**
+ * Classe model per scambio di messaggi
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class UserLoginRequest extends Packet {
     private static final long serialVersionUID = -8877420813199743460L;
     private String username;

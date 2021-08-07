@@ -1,5 +1,9 @@
 package datatypes.protocolmessages;
-
+/**
+ * Classe model per scambio di messaggi
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class GetCVByMunicipalityTypologyRequest extends Packet {
     private String municipality;
     private String typology;

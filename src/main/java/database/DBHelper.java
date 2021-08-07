@@ -7,15 +7,27 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Singleton class */
+/**
+ * CLasse singleton utilitaria. Permette di dialogare con il database postgreSQL.
+ */
 public class DBHelper {
+    /**
+     * Istanza della classe
+     */
     private static DBHelper instance = null;
+    /**
+     * Connessione al database
+     */
     private static Connection connection;
 
     private DBHelper() {
         connect();
     }
 
+    /**
+     * Fornisce l'istanza del dbHelper se presente, altrimenti lo inizializza
+     * @return istanza del dbHelper
+     */
     public static synchronized DBHelper getInstance() {
         if (instance == null) {
             instance = new DBHelper();
@@ -23,6 +35,9 @@ public class DBHelper {
         return instance;
     }
 
+    /**
+     * Si connette al database
+     */
     private void connect() {
         try {
             String user = "admin";
@@ -35,9 +50,12 @@ public class DBHelper {
         }
     }
 
-    /* CRUD OPERATIONS */
-    //https://www.codejava.net/java-se/jdbc/jdbc-tutorial-sql-insert-select-update-and-delete-examples
-
+    /**
+     * Inserisce un nuovo centro vaccinale
+     * @param cv centro vaccinale da inserire
+     * @return true se inserito, false altrimenti
+     * @throws SQLException eccezione sql
+     */
     public boolean insertCV(CentroVaccinale cv) throws SQLException {
         String sql = "INSERT INTO public.centrovaccinale(\n" +
                 "\tnome, nomeindirizzo, comune, numero, qualificatore, siglaprovincia, cap, tipologia)\n" +
@@ -55,6 +73,12 @@ public class DBHelper {
         return statement.executeUpdate() > 0;
     }
 
+    /**
+     * Inserisce una nuova vaccinazione
+     * @param vaccinazione vaccinazione da inserire
+     * @return true se inserita, false altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public String insertVaccination(Vaccinazione vaccinazione) throws SQLException {
         //Prima controllo se devo creare il vaccinato
         Vaccinato v = vaccinazione.getVaccinato();
@@ -89,12 +113,24 @@ public class DBHelper {
         else return null;
     }
 
+    /**
+     * Inserisce un nuovo vaccino
+     * @param v vaccino da inserire
+     * @return true se inserito, false altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public boolean insertVaccine(Vaccino v) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO vaccino(nome) VALUES (?);");
         statement.setString(1, v.getNome());
         return statement.executeUpdate() > 0;
     }
 
+    /**
+     * Inserisce una nuova tipologia di evento avverso
+     * @param ta tipologia da inserire
+     * @return true se inserito, false altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public boolean insertEventTypology(TipologiaEventoAvverso ta) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO tipologiaeventoavverso(nome)\n" +
                 "\tVALUES (?);");
@@ -102,6 +138,13 @@ public class DBHelper {
         return statement.executeUpdate() > 0;
     }
 
+    /**
+     * Inserisce un nuovo evento avverso
+     * @param ev evento avverso da inserire
+     * @param vaccinato vaccinato che lo richiede
+     * @return true se inserito, false altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public boolean insertEvent(EventoAvverso ev, Vaccinato vaccinato) throws SQLException {
         try {
             Vaccinazione ultimaVaccinazione = getLastVaccination(vaccinato);
@@ -120,6 +163,13 @@ public class DBHelper {
         }
     }
 
+    /**
+     * Registra un nuovo utente(cittadino)
+     * @param vaccinato da registrare
+     * @param chiave identificativo della vaccinazione
+     * @return true se inserito, false altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public boolean registerUser(Vaccinato vaccinato, String chiave) throws SQLException {
         //Controllo che la chiave sia la stessa della vaccinazione
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccinazione WHERE id=? AND vaccinatocodicefiscale = ?");
@@ -145,6 +195,13 @@ public class DBHelper {
         }
     }
 
+    /**
+     * Login cittadino
+     * @param username username del cittadino
+     * @param password password del cittadino
+     * @return true se login superato, false altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public Vaccinato login(String username, String password) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccinato WHERE userid = ? AND password = ?");
         statement.setString(1, username);
@@ -178,6 +235,11 @@ public class DBHelper {
         return v;
     }
 
+    /**
+     * Ottiene tutti i centri vaccinali
+     * @return lista con centri vaccinali
+     * @throws SQLException eccezione SQL
+     */
     public List<CentroVaccinale> getCV() throws SQLException {
         List<CentroVaccinale> list = new ArrayList<>();
         Statement statement = connection.createStatement();
@@ -189,6 +251,12 @@ public class DBHelper {
         return list;
     }
 
+    /**
+     * Ottiene i centri vaccinali con nome uguale
+     * @param nome del centro vaccinale da ricercare
+     * @return lista dei centri vaccinali con nome uguale
+     * @throws SQLException eccezione SQL
+     */
     public List<CentroVaccinale> getCV(String nome) throws SQLException {
         List<CentroVaccinale> list = new ArrayList<>();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE nome LIKE '%' || ? || '%'");
@@ -201,6 +269,13 @@ public class DBHelper {
         return list;
     }
 
+    /**
+     * Ottiene i centri vaccinali con comune e tipologia uguali
+     * @param comune comune da ricercare
+     * @param tipologia tipologia da ricercare
+     * @return lista dei centri vaccinali trovati
+     * @throws SQLException eccezione SQL
+     */
     public List<CentroVaccinale> getCV(String comune, String tipologia) throws SQLException {
         List<CentroVaccinale> list = new ArrayList<>();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE comune = ? AND tipologia = ?");
@@ -214,6 +289,12 @@ public class DBHelper {
         return list;
     }
 
+    /**
+     * Ottiene il centro vaccinale con identificativo uguale a @id
+     * @param id id da ricercare
+     * @return centro vaccinale trovato, null altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public CentroVaccinale getCVById(int id) throws SQLException {
         CentroVaccinale cv;
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE id = ?;");
@@ -224,6 +305,12 @@ public class DBHelper {
         return cv;
     }
 
+    /**
+     * Ottiene il vaccino con identificativo uguale a @id
+     * @param id id da ricercare
+     * @return vaccino trovato, null altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public Vaccino getVaccinoById(int id) throws SQLException {
         Vaccino v = new Vaccino();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccino WHERE id = ?;");
@@ -235,6 +322,12 @@ public class DBHelper {
         return v;
     }
 
+    /**
+     * Ottiene il vaccinato con codice fiscale uguale a @cf
+     * @param cf codice fiscale da trovare
+     * @return Vaccinato se esiste cf, null altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public Vaccinato getVaccinatedById(String cf) throws SQLException{
         Vaccinato v = new Vaccinato();
         PreparedStatement statement = connection.prepareStatement("select * from vaccinato where codicefiscale = ?");
@@ -244,6 +337,12 @@ public class DBHelper {
         return getVaccinatedFromResult(result);
     }
 
+    /**
+     * Ottiene una vaccinazione con identificativo uguale a @key
+     * @param key identificativo da ricercare
+     * @return vaccinazione se esiste key, null altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public Vaccinazione getVaccinationById(String key) throws SQLException{
         Vaccinazione vaccinazione = new Vaccinazione();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccinazione WHERE Id = ?");
@@ -258,6 +357,12 @@ public class DBHelper {
         return vaccinazione;
     }
 
+    /**
+     * Ottiene l'ultima vaccinazione di un vaccinato
+     * @param vaccinato il vaccinato di cui interessa l'ultima vaccinazione
+     * @return vaccinazione se esiste, null altrimenti
+     * @throws SQLException eccezione SQL
+     */
     public Vaccinazione getLastVaccination(Vaccinato vaccinato) throws SQLException {
         Vaccinazione vaccinazione = new Vaccinazione();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM vaccinazione WHERE vaccinatocodicefiscale = ? AND datavaccinazione >= ALL(SELECT datavaccinazione FROM vaccinazione WHERE vaccinatocodicefiscale = ?);");
@@ -273,6 +378,11 @@ public class DBHelper {
         return vaccinazione;
     }
 
+    /**
+     * Ottiene tutti i vaccini
+     * @return tutti i vaccini
+     * @throws SQLException eccezione SQL
+     */
     public List<Vaccino> getVaccines() throws SQLException {
         List<Vaccino> vaccini = new ArrayList<>();
         Statement statement = connection.createStatement();
@@ -286,6 +396,11 @@ public class DBHelper {
         return vaccini;
     }
 
+    /**
+     * Ottiene tutte le tipologie di eventi avversi
+     * @return tutte le tipologie di eventi avversi
+     * @throws SQLException
+     */
     public List<TipologiaEventoAvverso> getEventTypes() throws SQLException {
         List<TipologiaEventoAvverso> list = new ArrayList<>();
         Statement statement = connection.createStatement();
@@ -299,6 +414,12 @@ public class DBHelper {
         return list;
     }
 
+    /**
+     * Genera un report del centro vaccinale dato come parametro
+     * @param cv centro vaccinale interessato
+     * @return report per quel centro vaccinale
+     * @throws SQLException eccezione SQL
+     */
     public ReportCV generateReport(CentroVaccinale cv) throws SQLException {
         ReportCV report = new ReportCV();
         report.setCentroVaccinale(cv);

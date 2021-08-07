@@ -2,6 +2,11 @@ package datatypes;
 
 import java.io.Serializable;
 
+/**
+ * Classe model per salvare i dati del db in memoria
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class Vaccinato implements Serializable {
     private static final long serialVersionUID = -5088965574392345113L;
     private String codiceFiscale;

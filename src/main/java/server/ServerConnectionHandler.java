@@ -12,16 +12,36 @@ import org.apache.mina.core.session.IoSession;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Gestore di una connessione TCP
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class ServerConnectionHandler extends IoHandlerAdapter
 {
+    /**
+     * Istanza del dbHelper per compiere operazioni sul database
+     */
     private final DBHelper db = DBHelper.getInstance();
 
+    /**
+     * Metodo chiamato quando si verifica un eccezione
+     * @param session sessione corrente
+     * @param cause causa dell'eccezione
+     * @throws Exception eccezione verificatasi nel metodo
+     */
     @Override
     public void exceptionCaught( IoSession session, Throwable cause ) throws Exception
     {
         cause.printStackTrace();
     }
 
+    /**
+     * Chiamato quando arriva un messaggio
+     * @param session sessione corrente
+     * @param message messaggio arrivato
+     * @throws Exception e.g. sessione non valida
+     */
     @Override
     public void messageReceived( IoSession session, Object message ) throws Exception {
         Packet pacchetto = (Packet) message;
@@ -179,6 +199,12 @@ public class ServerConnectionHandler extends IoHandlerAdapter
 
 
     }
+
+    /**
+     * Autentica il client(cittadino)
+     * @param session sessione dove autenticarlo
+     * @param cf codice fiscale del cittadino
+     */
     private void setClientAuthenticated(IoSession session, String cf){
         try {
             session.setAttribute("vaccinato", db.getVaccinatedById(cf));
@@ -189,14 +215,30 @@ public class ServerConnectionHandler extends IoHandlerAdapter
         }
     }
 
+    /**
+     * Verifica che il client sia autenticato
+     * @param session sessione attuale
+     * @return true se è autenticato, false altrimenti
+     */
     private boolean isClientAuthenticated(IoSession session){
         return session != null && session.getAttribute("login") != null && (boolean) session.getAttribute("login");
     }
 
+    /**
+     * Ottiene il vaccinato autenticato
+     * @param session sessione corrente
+     * @return vaccinato autenticato, null altrimenti
+     */
     private Vaccinato getAuthVaccinated(IoSession session){
         if(session != null) return (Vaccinato) session.getAttribute("vaccinato"); else return null;
     }
 
+    /**
+     * Metodo chiamato quando il client è in stato di IDLE
+     * @param session sessione corrente
+     * @param status stato della sessione
+     * @throws Exception e.g. sessione non valida
+     */
     @Override
     public void sessionIdle( IoSession session, IdleStatus status ) throws Exception
     {

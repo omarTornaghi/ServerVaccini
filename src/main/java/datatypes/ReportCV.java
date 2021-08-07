@@ -6,8 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Classe model per salvare i dati del db in memoria
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class ReportCV implements Serializable {
-    private static final long serialVersionUID = -3286496988465431898L;
     private CentroVaccinale centroVaccinale; // Forse inutile
     private final Map<String, Integer> eventiAvversi;
     private int numEventiAvversi;

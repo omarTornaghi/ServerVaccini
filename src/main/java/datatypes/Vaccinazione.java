@@ -3,6 +3,11 @@ package datatypes;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Classe model per salvare i dati del db in memoria
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class Vaccinazione implements Serializable {
     private static final long serialVersionUID = -6514125346962267213L;
     private String id;

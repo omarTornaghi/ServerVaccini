@@ -2,6 +2,11 @@ package datatypes.protocolmessages;
 
 import datatypes.Vaccinato;
 
+/**
+ * Classe model per scambio di messaggi
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class UserLoginResponse extends PacketACK {
     private static final long serialVersionUID = -3902911082916587221L;
     private Vaccinato vaccinato;

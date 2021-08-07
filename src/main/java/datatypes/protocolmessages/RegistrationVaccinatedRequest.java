@@ -1,7 +1,13 @@
 package datatypes.protocolmessages;
 
+
 import datatypes.Vaccinazione;
 
+/**
+ * Classe model per scambio di messaggi
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class RegistrationVaccinatedRequest extends Packet{
     private Vaccinazione vaccinazione;
 

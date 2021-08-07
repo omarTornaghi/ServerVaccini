@@ -2,7 +2,17 @@ package database;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
+/**
+ * Classe utilitaria per cifrare password
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class Crypter {
+    /**
+     * Trasforma la stringa di input in sha256
+     * @param base stringa da trasformare
+     * @return stringa in sha256
+     */
     public static String sha256(final String base) {
         if(base == null) return "";
         try{

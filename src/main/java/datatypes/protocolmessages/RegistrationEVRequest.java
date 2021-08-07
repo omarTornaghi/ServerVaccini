@@ -2,6 +2,11 @@ package datatypes.protocolmessages;
 
 import datatypes.EventoAvverso;
 
+/**
+ * Classe model per scambio di messaggi
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class RegistrationEVRequest extends Packet{
     private EventoAvverso eventoAvverso;
 

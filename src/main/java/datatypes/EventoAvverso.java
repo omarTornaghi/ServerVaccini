@@ -2,6 +2,11 @@ package datatypes;
 
 import java.io.Serializable;
 
+/**
+ * Classe model per salvare i dati del db in memoria
+ * @author Tornaghi Omar
+ * @version 1.0
+ */
 public class EventoAvverso implements Serializable {
     private static final long serialVersionUID = 1844985672063253560L;
     private int id;
