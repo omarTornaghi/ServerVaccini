@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class MainProgram {
-    public static void main(String[] args) throws IOException, SQLException, NoSuchAlgorithmException {
+    public static void main(String[] args) throws Exception {
         ServerHandler server = new ServerHandler();
         server.execute();
     }
