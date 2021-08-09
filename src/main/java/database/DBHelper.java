@@ -447,4 +447,30 @@ public class DBHelper {
         return report;
     }
 
+    /**
+     * Controlla se esiste o meno un cittadino con lo stesso userId
+     * @param userId userId da ricercare
+     * @return true se esiste false altrimenti
+     * @throws SQLException eccezione SQL
+     */
+    public boolean checkUserIdExists(String userId) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("select * from vaccinato where userId = ?");
+        statement.setString(1, userId);
+        ResultSet result = statement.executeQuery();
+        return result.next();
+    }
+
+    /**
+     * Controlla se esiste o meno un cittadino con la stessa email
+     * @param email email da ricercare
+     * @return true se esiste false altrimenti
+     * @throws SQLException eccezione SQL
+     */
+    public boolean checkEmailExists(String email) throws SQLException{
+        PreparedStatement statement = connection.prepareStatement("select * from vaccinato where email = ?");
+        statement.setString(1, email);
+        ResultSet result = statement.executeQuery();
+        return result.next();
+    }
+
 }

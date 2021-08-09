@@ -6,6 +6,8 @@ package datatypes.protocolmessages;
  * @version 1.0
  */
 public class GetAllCVRequest extends Packet{
+    private static final long serialVersionUID = -8498848924803063312L;
+
     public GetAllCVRequest() {
     }
 

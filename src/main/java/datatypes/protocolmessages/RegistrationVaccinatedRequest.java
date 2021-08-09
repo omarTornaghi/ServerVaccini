@@ -9,6 +9,7 @@ import datatypes.Vaccinazione;
  * @version 1.0
  */
 public class RegistrationVaccinatedRequest extends Packet{
+    private static final long serialVersionUID = -5958503256939101020L;
     private Vaccinazione vaccinazione;
 
     public RegistrationVaccinatedRequest() {

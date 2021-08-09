@@ -5,6 +5,8 @@ package datatypes.protocolmessages;
  * @version 1.0
  */
 public class GetVaccinesRequest extends Packet{
+    private static final long serialVersionUID = -6608599340089735955L;
+
     public GetVaccinesRequest() {
     }
     @Override

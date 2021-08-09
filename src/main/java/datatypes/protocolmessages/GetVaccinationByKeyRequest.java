@@ -5,6 +5,7 @@ package datatypes.protocolmessages;
  * @version 1.0
  */
 public class GetVaccinationByKeyRequest extends Packet{
+    private static final long serialVersionUID = 8415106386104463159L;
     private String key;
 
     public GetVaccinationByKeyRequest() {

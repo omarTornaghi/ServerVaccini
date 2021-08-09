@@ -5,6 +5,8 @@ package datatypes.protocolmessages;
  * @version 1.0
  */
 public class GetEVTypologiesRequest extends Packet{
+    private static final long serialVersionUID = 3402743595483568010L;
+
     public GetEVTypologiesRequest() {
     }
 

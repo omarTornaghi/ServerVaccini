@@ -5,6 +5,7 @@ package datatypes.protocolmessages;
  * @version 1.0
  */
 public abstract class PacketACK extends Packet{
+    private static final long serialVersionUID = 184085356701110105L;
     /**
      * Esito dell'operazione
      */

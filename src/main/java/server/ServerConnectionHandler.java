@@ -194,10 +194,22 @@ public class ServerConnectionHandler extends IoHandlerAdapter
             try{
                 session.write(new GetReportResponse(true, db.generateReport(req.getCv())));
             }
-            catch(SQLException excp){ new GetReportResponse(false, null); }
+            catch(SQLException excp){ session.write(new GetReportResponse(false, null)); }
         }
-
-
+        /* OPERAZIONE LIBERA */
+        if(pacchetto instanceof CheckUserIdRequest){
+            try{
+                session.write(new CheckUserIdResponse(db.checkUserIdExists(((CheckUserIdRequest)pacchetto).getUserId())));
+            }
+            catch (SQLException excp){ session.write(new CheckUserIdResponse(false)); }
+        }
+        /* OPERAZIONE LIBERA */
+        if(pacchetto instanceof CheckEmailRequest){
+            try{
+                session.write(new CheckEmailResponse(db.checkEmailExists(((CheckEmailRequest)pacchetto).getEmail())));
+            }
+            catch (SQLException excp){ session.write(new CheckEmailResponse(false)); }
+        }
     }
 
     /**

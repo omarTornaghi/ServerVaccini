@@ -4,13 +4,10 @@ package datatypes.protocolmessages;
  * @author Tornaghi Omar
  * @version 1.0
  */
-public class RegistrationEVResponse extends PacketACK{
-    private static final long serialVersionUID = 2769755372426194885L;
+public class CheckEmailResponse extends PacketACK{
+    private static final long serialVersionUID = 4097691832790682603L;
 
-    public RegistrationEVResponse() {
-    }
-
-    public RegistrationEVResponse(boolean esito) {
+    public CheckEmailResponse(boolean esito) {
         super(esito);
     }
 

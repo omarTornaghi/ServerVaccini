@@ -11,14 +11,8 @@ import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.InetSocketAddress;
-import java.security.GeneralSecurityException;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
 import java.security.SecureRandom;
 
 /**
@@ -33,14 +27,12 @@ public class ServerHandler {
      */
     private static final int PORT = 9123;
 
-    private static SSLContext getSslContext(String keystoreFile, String password) throws Exception {
+    private static SSLContext getSslContext() throws Exception {
             KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
-            try (InputStream in = new FileInputStream(keystoreFile)) {
-                keystore.load(in, password.toCharArray());
-            }
+            keystore.load(ServerHandler.class.getClassLoader().getResourceAsStream("tls/myKeyStore.jks"), "password".toCharArray());
             KeyManagerFactory keyManagerFactory =
                     KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-            keyManagerFactory.init(keystore, password.toCharArray());
+            keyManagerFactory.init(keystore, "password".toCharArray());
 
             TrustManagerFactory trustManagerFactory =
                     TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -61,7 +53,7 @@ public class ServerHandler {
      */
     public void execute() throws Exception {
         IoAcceptor acceptor = new NioSocketAcceptor();
-        SslFilter sslFilter = new SslFilter(getSslContext("config/tls/myKeyStore.jks", "password"));
+        SslFilter sslFilter = new SslFilter(getSslContext());
         sslFilter.setNeedClientAuth(true);
         acceptor.getFilterChain().addFirst("sslFilter", sslFilter);
         acceptor.getFilterChain().addLast("logger", new LoggingFilter());
@@ -73,7 +65,7 @@ public class ServerHandler {
         acceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
 
         acceptor.bind(new InetSocketAddress(PORT));
-
+        System.out.println("Server avviato");
 
     }
 }

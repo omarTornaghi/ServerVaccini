@@ -5,6 +5,7 @@ package datatypes.protocolmessages;
  * @version 1.0
  */
 public class GetCVByMunicipalityTypologyRequest extends Packet {
+    private static final long serialVersionUID = 1914798707213294453L;
     private String municipality;
     private String typology;
 

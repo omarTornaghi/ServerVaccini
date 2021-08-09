@@ -10,6 +10,7 @@ import java.util.List;
  * @version 1.0
  */
 public class GetCVResponse extends PacketACK{
+    private static final long serialVersionUID = 5533125535051550280L;
     List<CentroVaccinale> cvList;
 
     public GetCVResponse() {

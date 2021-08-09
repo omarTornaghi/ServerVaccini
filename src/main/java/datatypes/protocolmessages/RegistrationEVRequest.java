@@ -8,6 +8,7 @@ import datatypes.EventoAvverso;
  * @version 1.0
  */
 public class RegistrationEVRequest extends Packet{
+    private static final long serialVersionUID = 7524697263590799705L;
     private EventoAvverso eventoAvverso;
 
     public RegistrationEVRequest() {

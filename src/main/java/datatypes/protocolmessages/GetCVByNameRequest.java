@@ -5,6 +5,7 @@ package datatypes.protocolmessages;
  * @version 1.0
  */
 public class GetCVByNameRequest extends Packet{
+    private static final long serialVersionUID = 6550664636511014674L;
     private String nome;
 
     public GetCVByNameRequest() {

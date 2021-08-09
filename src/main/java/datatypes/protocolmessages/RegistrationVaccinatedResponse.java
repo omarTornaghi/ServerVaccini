@@ -5,6 +5,7 @@ package datatypes.protocolmessages;
  * @version 1.0
  */
 public class RegistrationVaccinatedResponse extends PacketACK{
+    private static final long serialVersionUID = -5383721318446990848L;
     private String chiave;
 
     public RegistrationVaccinatedResponse() {

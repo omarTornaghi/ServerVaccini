@@ -8,6 +8,7 @@ import datatypes.CentroVaccinale;
  * @version 1.0
  */
 public class RegistrationCVRequest extends Packet{
+    private static final long serialVersionUID = -3065993917158343758L;
     private CentroVaccinale cv;
 
     public RegistrationCVRequest() {
