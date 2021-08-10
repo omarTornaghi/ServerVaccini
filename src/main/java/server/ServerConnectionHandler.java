@@ -9,6 +9,7 @@ import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 
+import javax.net.ssl.SSLException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -33,7 +34,11 @@ public class ServerConnectionHandler extends IoHandlerAdapter
     @Override
     public void exceptionCaught( IoSession session, Throwable cause ) throws Exception
     {
-        cause.printStackTrace();
+        //Se eccezione SSL(e.g. handshake fallito, termino la connessione
+        if(cause instanceof SSLException) {
+            System.out.println("ECCEZIONE TLS SESSION " + session.getId());
+            session.close(true);
+        }
     }
 
     /**
@@ -44,7 +49,11 @@ public class ServerConnectionHandler extends IoHandlerAdapter
      */
     @Override
     public void messageReceived( IoSession session, Object message ) throws Exception {
-        Packet pacchetto = (Packet) message;
+        Packet pacchetto = null;
+        try {
+            pacchetto = (Packet) message;
+        }
+        catch(Exception ex){ System.out.println("EXCEPTION Pacchetto non riconosciuto");}
         /* OPERAZIONE LIBERA */
         if (pacchetto instanceof RegistrationCVRequest) {
             RegistrationCVRequest req = (RegistrationCVRequest) pacchetto;

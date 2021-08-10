@@ -4,6 +4,7 @@ import org.apache.mina.core.service.IoAcceptor;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.filter.codec.serialization.ObjectSerializationCodecFactory;
+import org.apache.mina.filter.logging.LogLevel;
 import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.filter.ssl.SslFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
@@ -11,6 +12,8 @@ import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
+import java.io.IOException;
+import java.net.BindException;
 import java.net.InetSocketAddress;
 import java.security.KeyStore;
 import java.security.SecureRandom;
@@ -53,10 +56,9 @@ public class ServerHandler {
      */
     public void execute() throws Exception {
         IoAcceptor acceptor = new NioSocketAcceptor();
-        SslFilter sslFilter = new SslFilter(getSslContext());
-        sslFilter.setNeedClientAuth(true);
-        acceptor.getFilterChain().addFirst("sslFilter", sslFilter);
-        acceptor.getFilterChain().addLast("logger", new LoggingFilter());
+
+        setTLSFilter(acceptor);
+        setLoggingFilter(acceptor);
         acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new ObjectSerializationCodecFactory()));
 
         acceptor.setHandler(new ServerConnectionHandler());
@@ -64,8 +66,36 @@ public class ServerHandler {
         acceptor.getSessionConfig().setReadBufferSize(2048);
         acceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
 
-        acceptor.bind(new InetSocketAddress(PORT));
+        startServer(acceptor);
         System.out.println("Server avviato");
 
+    }
+
+    private void setLoggingFilter(IoAcceptor acceptor) {
+        LoggingFilter loggingFilter = new LoggingFilter();
+        loggingFilter.setExceptionCaughtLogLevel(LogLevel.TRACE);
+        loggingFilter.setMessageReceivedLogLevel(LogLevel.INFO);
+        loggingFilter.setMessageSentLogLevel(LogLevel.INFO);
+        acceptor.getFilterChain().addLast("logger", loggingFilter);
+    }
+
+    private void setTLSFilter(IoAcceptor acceptor) throws Exception {
+        SslFilter sslFilter = new SslFilter(getSslContext());
+        sslFilter.setNeedClientAuth(true);
+        acceptor.getFilterChain().addFirst("sslFilter", sslFilter);
+    }
+
+    private void startServer(IoAcceptor acceptor) throws IOException, InterruptedException {
+        boolean avvioServer = false;
+        int t = 0;
+        while(!avvioServer) {
+            try {
+                acceptor.bind(new InetSocketAddress(PORT));
+                avvioServer = true;
+            } catch (BindException ignored) {
+                System.out.println("Porta già in uso, tentativo #" + ++t);
+                Thread.sleep(1000);
+            }
+        }
     }
 }

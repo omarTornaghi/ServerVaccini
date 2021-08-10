@@ -423,7 +423,7 @@ public class DBHelper {
     public ReportCV generateReport(CentroVaccinale cv) throws SQLException {
         ReportCV report = new ReportCV();
         report.setCentroVaccinale(cv);
-        PreparedStatement statement = connection.prepareStatement("SELECT tipologiaeventoavverso.Nome, COUNT(eventoavverso.Id)\n" +
+        PreparedStatement statement = connection.prepareStatement("SELECT tipologiaeventoavverso.Nome, COUNT(eventoavverso.Id), AVG(eventoavverso.severita)\n" +
                 "FROM tipologiaeventoavverso INNER JOIN eventoavverso\n" +
                 "ON tipologiaeventoavverso.Id = eventoavverso.TipologiaEventoAvversoId\n" +
                 "WHERE eventoavverso.CentroVaccinaleId = ?\n" +
@@ -435,7 +435,8 @@ public class DBHelper {
             String nome = result.getString(1);
             int count = result.getInt(2);
             numEv += count;
-            report.setCountEV(nome, count);
+            double media = result.getDouble(3);
+            report.setCountEV(nome, count, media);
         }
         report.setNumEventiAvversi(numEv);
         //Severita media
@@ -443,7 +444,7 @@ public class DBHelper {
         statement.setInt(1, cv.getId());
         result = statement.executeQuery();
         if (!result.next()) return null;
-        report.setSeveritaMedia(result.getDouble(1));
+        report.setSeveritaMediaComplessiva(result.getDouble(1));
         return report;
     }
 
