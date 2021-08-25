@@ -1,6 +1,7 @@
 import database.Crypter;
 import database.DBHelper;
 import datatypes.*;
+import server.Initializer;
 import server.ServerHandler;
 
 import java.io.IOException;
@@ -12,17 +13,14 @@ import java.util.List;
 
 public class MainProgram {
     public static void main(String[] args) throws Exception {
+        boolean inizializzazione = Initializer.initialize();
+        if(!inizializzazione){
+            System.err.println("Impossibile inizializzare le risorse");
+            return;
+        }
         ServerHandler server = new ServerHandler();
         server.execute();
     }
 
-    /* Inizializzazione tipologia ev
-    db.insertEventTypology(new TipologiaEventoAvverso("Mal di testa"));
-        db.insertEventTypology(new TipologiaEventoAvverso("Febbre"));
-        db.insertEventTypology(new TipologiaEventoAvverso("Dolori muscolari e articolari"));
-        db.insertEventTypology(new TipologiaEventoAvverso("Linfoadenopatia"));
-        db.insertEventTypology(new TipologiaEventoAvverso("Tachicardia"));
-        db.insertEventTypology(new TipologiaEventoAvverso("Crisi ipertensiva"));
-     */
 
 }

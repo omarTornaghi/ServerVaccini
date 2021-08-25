@@ -3,9 +3,13 @@ package database;
 import datatypes.*;
 import org.apache.commons.lang3.RandomStringUtils;
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * CLasse singleton utilitaria. Permette di dialogare con il database postgreSQL.
@@ -21,7 +25,6 @@ public class DBHelper {
     private static Connection connection;
 
     private DBHelper() {
-        connect();
     }
 
     /**
@@ -38,16 +41,74 @@ public class DBHelper {
     /**
      * Si connette al database
      */
-    private void connect() {
+    public boolean connect(String user, String password, String host, String nomeDB) {
         try {
-            String user = "admin";
-            String password = "admin";
-            String url = "jdbc:postgresql://localhost/VacciniDB";
+            String url = "jdbc:postgresql://" + host + "/" + nomeDB;
             connection = DriverManager.getConnection(url, user, password);
             System.out.println("Connessione al DB riuscita");
+            return true;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Impossibile connettersi al DB");
+            return false;
         }
+    }
+
+    public boolean initialize(String user, String password, String host, String nomeDB) throws SQLException {
+        //Creo il database
+        String url = "jdbc:postgresql://" + host + "/postgres";
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("CREATE DATABASE " + nomeDB);
+            System.out.println("Database " + nomeDB + " creato correttamente");
+        }
+        catch(SQLException sqlexcp){
+            System.out.println("Impossibile creare il database");
+            return false;
+        }
+        //Creo le tabelle nel database
+        String queryCREATE = "";
+        try {
+            InputStream is = getClass().getClassLoader().getResourceAsStream("query/CREATETABLE.txt");
+            ByteArrayOutputStream result = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            for (int length; (length = Objects.requireNonNull(is).read(buffer)) != -1; ) {
+                result.write(buffer, 0, length);
+            }
+            queryCREATE = result.toString(StandardCharsets.UTF_8);
+        }
+        catch(Exception excp){
+            System.out.println("Impossibile ottenere la query di creazione delle tabelle");
+            return false;
+        }
+
+        if(connect(user,password,host,nomeDB))
+        {
+            try {
+                Statement statement = connection.createStatement();
+                statement.executeUpdate(queryCREATE);
+                System.out.println("Tabelle create correttamente");
+            }
+            catch(SQLException sqlexcp){
+                System.out.println("Impossibile creare le tabelle");
+            }
+        }
+        else
+            return false;
+        //Popolo le tabelle
+        insertEventTypology(new TipologiaEventoAvverso("Mal di testa"));
+        insertEventTypology(new TipologiaEventoAvverso("Febbre"));
+        insertEventTypology(new TipologiaEventoAvverso("Dolori muscolari e articolari"));
+        insertEventTypology(new TipologiaEventoAvverso("Linfoadenopatia"));
+        insertEventTypology(new TipologiaEventoAvverso("Tachicardia"));
+        insertEventTypology(new TipologiaEventoAvverso("Crisi ipertensiva"));
+        insertVaccine(new Vaccino("Pfizer"));
+        insertVaccine(new Vaccino("Astrazeneca"));
+        insertVaccine(new Vaccino("J&J"));
+        insertVaccine(new Vaccino("Moderna"));
+        insertVaccine(new Vaccino("Sputnik"));
+        System.out.println("Database inizializzato correttamente");
+        return true;
     }
 
     /**
@@ -473,5 +534,7 @@ public class DBHelper {
         ResultSet result = statement.executeQuery();
         return result.next();
     }
+
+
 
 }
