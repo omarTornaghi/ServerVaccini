@@ -564,3 +564,44 @@ INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=208 cap=246: 00 00 00 CC AC ED 00 05 73 72 01 00 30 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=144 cap=256: 00 00 00 8C AC ED 00 05 73 72 01 00 31 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE

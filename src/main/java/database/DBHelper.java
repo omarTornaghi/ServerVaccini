@@ -243,7 +243,7 @@ public class DBHelper {
     public List<CentroVaccinale> getCV() throws SQLException {
         List<CentroVaccinale> list = new ArrayList<>();
         Statement statement = connection.createStatement();
-        ResultSet result = statement.executeQuery("SELECT * FROM centrovaccinale;");
+        ResultSet result = statement.executeQuery("SELECT * FROM centrovaccinale ORDER BY nome;");
         while (result.next()) {
             CentroVaccinale cv = getCVFromResult(result);
             list.add(cv);
@@ -259,7 +259,7 @@ public class DBHelper {
      */
     public List<CentroVaccinale> getCV(String nome) throws SQLException {
         List<CentroVaccinale> list = new ArrayList<>();
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE nome LIKE '%' || ? || '%'");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE nome LIKE '%' || ? || '%' ORDER BY nome");
         statement.setString(1, nome);
         ResultSet result = statement.executeQuery();
         while (result.next()) {
@@ -278,7 +278,7 @@ public class DBHelper {
      */
     public List<CentroVaccinale> getCV(String comune, String tipologia) throws SQLException {
         List<CentroVaccinale> list = new ArrayList<>();
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE comune = ? AND tipologia = ?");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM centrovaccinale WHERE comune = ? AND tipologia = ? ORDER BY nome");
         statement.setString(1, comune);
         statement.setString(2, tipologia);
         ResultSet result = statement.executeQuery();
@@ -386,7 +386,7 @@ public class DBHelper {
     public List<Vaccino> getVaccines() throws SQLException {
         List<Vaccino> vaccini = new ArrayList<>();
         Statement statement = connection.createStatement();
-        ResultSet result = statement.executeQuery("SELECT * FROM vaccino;");
+        ResultSet result = statement.executeQuery("SELECT * FROM vaccino order by nome;");
         while (result.next()) {
             Vaccino v = new Vaccino();
             v.setId(result.getInt(1));
