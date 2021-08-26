@@ -58,18 +58,25 @@ public class DBHelper {
         String url = "jdbc:postgresql://" + host + "/postgres";
         try {
             connection = DriverManager.getConnection(url, user, password);
+        }
+        catch(SQLException sqlexcp){
+            System.out.println("Impossibile creare il database(database postgres non trovato)");
+            return false;
+        }
+        try {
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE DATABASE " + nomeDB);
             System.out.println("Database " + nomeDB + " creato correttamente");
         }
         catch(SQLException sqlexcp){
-            System.out.println("Impossibile creare il database");
-            return false;
+            System.out.println("Il database " + nomeDB + " esiste già");
+            System.out.println("Terminazione procedura di inizializzazione DB");
+            return true;
         }
         //Creo le tabelle nel database
         String queryCREATE = "";
         try {
-            InputStream is = getClass().getClassLoader().getResourceAsStream("query/CREATETABLE.txt");
+            InputStream is = getClass().getClassLoader().getResourceAsStream("query/CREATETABLE.sql");
             ByteArrayOutputStream result = new ByteArrayOutputStream();
             byte[] buffer = new byte[1024];
             for (int length; (length = Objects.requireNonNull(is).read(buffer)) != -1; ) {

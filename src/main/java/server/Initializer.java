@@ -13,38 +13,52 @@ import java.util.Locale;
  * @version 1.0
  */
 public class Initializer {
+    /**
+     * Inizializza il software
+     * @return true se la procedura termina correttamente, false altrimenti
+     * @throws IOException eccezioni input/output
+     */
     public static boolean initialize() throws IOException {
         boolean inizializzazioneCompletata = true;
         String user;
         String password;
         String host;
         String nomeDB;
-        //TODO Prendo in input questi campi
-        user = "admin";
-        password = "admin";
-        host = "localhost";
-        nomeDB = "VacciniDB";
 
-        host = host.toLowerCase(Locale.ROOT);
-        nomeDB = nomeDB.toLowerCase(Locale.ROOT);
-
-        final String filePath = "config/dbInitialized.txt";
+        final String directoryPath = "config";
+        final String filePath = directoryPath + "/dbInitialized.config";
         File file = new File(filePath);
         if(!file.exists()) {
             try {
+                //TODO Prendo in input questi campi
+                user = "admin";
+                password = "admin";
+                host = "localhost";
+                nomeDB = "VacciniDB";
+
+                host = host.toLowerCase(Locale.ROOT);
+                nomeDB = nomeDB.toLowerCase(Locale.ROOT);
                 inizializzazioneCompletata = DBHelper.getInstance().initialize(user, password, host, nomeDB);
                 if(inizializzazioneCompletata){
-                    boolean created = false;
-                    created = file.createNewFile();
+                    File directory = new File(directoryPath);
+                    boolean created = true;
+                    if(!directory.exists()) created = directory.mkdir();
+                    created = created && file.createNewFile();
                     if (!created) {
                         System.out.println("Impossibile creare file di inizializzazione db");
                         return false;
                     }
                     BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
-                    writer.write("DB Initialized by " + user);
+                    writer.write(user);
+                    writer.newLine();
+                    writer.write(password);
+                    writer.newLine();
+                    writer.write(host);
+                    writer.newLine();
+                    writer.write(nomeDB);
                     writer.newLine();
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                    writer.write(timestamp.toString());
+                    writer.write("Initialized at: " + timestamp.toString());
                     writer.close();
                 }
             } catch (SQLException sqlExcp) {
@@ -55,6 +69,11 @@ public class Initializer {
         }
         else{
             //Il database esiste già, mi connetto
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            user = br.readLine();
+            password = br.readLine();
+            host = br.readLine();
+            nomeDB = br.readLine();
             inizializzazioneCompletata = DBHelper.getInstance().connect(user,password,host,nomeDB);
         }
         if(inizializzazioneCompletata)

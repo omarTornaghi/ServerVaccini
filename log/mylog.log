@@ -1,607 +1,243 @@
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-WARN NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
-javax.net.ssl.SSLHandshakeException: SSL handshake failed.
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:487)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:146)
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:64)
-	at java.base/sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:557)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:454)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:433)
-	at java.base/javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:637)
-	at org.apache.mina.filter.ssl.SslHandler.unwrap(SslHandler.java:728)
-	at org.apache.mina.filter.ssl.SslHandler.unwrapHandshake(SslHandler.java:666)
-	at org.apache.mina.filter.ssl.SslHandler.handshake(SslHandler.java:552)
-	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:351)
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:468)
-	... 15 more
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=216 cap=292: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=335 cap=449: 00 00 00 65 AC ED 00 05 73 72 01 00 2D 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=141 cap=256: 00 00 00 89 AC ED 00 05 73 72 01 00 2E 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=140 cap=256: 00 00 00 88 AC ED 00 05 73 72 01 00 2D 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=109 cap=147: 00 00 00 69 AC ED 00 05 73 72 01 00 2D 64 61 74...]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=141 cap=256: 00 00 00 89 AC ED 00 05 73 72 01 00 2E 64 61 74...]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=229 cap=305: 00 00 00 75 AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=140 cap=256: 00 00 00 88 AC ED 00 05 73 72 01 00 2D 64 61 74...]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=108 cap=146: 00 00 00 68 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=223 cap=256: 00 00 00 DB AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=226 cap=302: 00 00 00 65 AC ED 00 05 73 72 01 00 2D 64 61 74...]
-INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=141 cap=256: 00 00 00 89 AC ED 00 05 73 72 01 00 2E 64 61 74...]
-INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=140 cap=256: 00 00 00 88 AC ED 00 05 73 72 01 00 2D 64 61 74...]
-INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=105 cap=143: 00 00 00 65 AC ED 00 05 73 72 01 00 2D 64 61 74...]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=141 cap=256: 00 00 00 89 AC ED 00 05 73 72 01 00 2E 64 61 74...]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=122 cap=160: 00 00 00 76 AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=140 cap=256: 00 00 00 88 AC ED 00 05 73 72 01 00 2D 64 61 74...]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-WARN NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
-javax.net.ssl.SSLHandshakeException: SSL handshake failed.
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:487)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:146)
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:64)
-	at java.base/sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:557)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:454)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:433)
-	at java.base/javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:637)
-	at org.apache.mina.filter.ssl.SslHandler.unwrap(SslHandler.java:728)
-	at org.apache.mina.filter.ssl.SslHandler.unwrapHandshake(SslHandler.java:666)
-	at org.apache.mina.filter.ssl.SslHandler.handshake(SslHandler.java:552)
-	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:351)
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:468)
-	... 15 more
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-WARN NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
-javax.net.ssl.SSLHandshakeException: SSL handshake failed.
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:487)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:146)
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:64)
-	at java.base/sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:557)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:454)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:433)
-	at java.base/javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:637)
-	at org.apache.mina.filter.ssl.SslHandler.unwrap(SslHandler.java:728)
-	at org.apache.mina.filter.ssl.SslHandler.unwrapHandshake(SslHandler.java:666)
-	at org.apache.mina.filter.ssl.SslHandler.handshake(SslHandler.java:552)
-	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:351)
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:468)
-	... 15 more
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=6 cap=1024: 63 69 61 6F 0D 0A]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=9 cap=1024: 73 69 73 69 73 69 73 0D 0A]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-WARN NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
-javax.net.ssl.SSLHandshakeException: SSL handshake failed.
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:487)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:146)
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:64)
-	at java.base/sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:557)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:454)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:433)
-	at java.base/javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:637)
-	at org.apache.mina.filter.ssl.SslHandler.unwrap(SslHandler.java:728)
-	at org.apache.mina.filter.ssl.SslHandler.unwrapHandshake(SslHandler.java:666)
-	at org.apache.mina.filter.ssl.SslHandler.handshake(SslHandler.java:552)
-	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:351)
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:468)
-	... 15 more
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=6 cap=2048: 73 69 73 69 0D 0A]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=8 cap=1024: 73 69 73 69 73 69 0D 0A]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=7 cap=1024: 70 72 6F 76 61 0D 0A]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=5 cap=512: 62 6F 68 0D 0A]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-WARN NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
-javax.net.ssl.SSLHandshakeException: SSL handshake failed.
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:487)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:146)
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:64)
-	at java.base/sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:557)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:454)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:433)
-	at java.base/javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:637)
-	at org.apache.mina.filter.ssl.SslHandler.unwrap(SslHandler.java:728)
-	at org.apache.mina.filter.ssl.SslHandler.unwrapHandshake(SslHandler.java:666)
-	at org.apache.mina.filter.ssl.SslHandler.handshake(SslHandler.java:552)
-	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:351)
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:468)
-	... 15 more
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-WARN NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
-javax.net.ssl.SSLHandshakeException: SSL handshake failed.
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:487)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:146)
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:64)
-	at java.base/sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:557)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:454)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:433)
-	at java.base/javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:637)
-	at org.apache.mina.filter.ssl.SslHandler.unwrap(SslHandler.java:728)
-	at org.apache.mina.filter.ssl.SslHandler.unwrapHandshake(SslHandler.java:666)
-	at org.apache.mina.filter.ssl.SslHandler.handshake(SslHandler.java:552)
-	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:351)
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:468)
-	... 15 more
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
-javax.net.ssl.SSLHandshakeException: SSL handshake failed.
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:487)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:146)
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:64)
-	at java.base/sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:557)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:454)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:433)
-	at java.base/javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:637)
-	at org.apache.mina.filter.ssl.SslHandler.unwrap(SslHandler.java:728)
-	at org.apache.mina.filter.ssl.SslHandler.unwrapHandshake(SslHandler.java:666)
-	at org.apache.mina.filter.ssl.SslHandler.handshake(SslHandler.java:552)
-	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:351)
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:468)
-	... 15 more
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
-javax.net.ssl.SSLHandshakeException: SSL handshake failed.
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:487)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:146)
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:64)
-	at java.base/sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:557)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:454)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:433)
-	at java.base/javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:637)
-	at org.apache.mina.filter.ssl.SslHandler.unwrap(SslHandler.java:728)
-	at org.apache.mina.filter.ssl.SslHandler.unwrapHandshake(SslHandler.java:666)
-	at org.apache.mina.filter.ssl.SslHandler.handshake(SslHandler.java:552)
-	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:351)
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:468)
-	... 15 more
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-ERROR NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - EXCEPTION :
-javax.net.ssl.SSLHandshakeException: SSL handshake failed.
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:487)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:146)
-	at java.base/sun.security.ssl.SSLEngineInputRecord.bytesInCompletePacket(SSLEngineInputRecord.java:64)
-	at java.base/sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:557)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:454)
-	at java.base/sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:433)
-	at java.base/javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:637)
-	at org.apache.mina.filter.ssl.SslHandler.unwrap(SslHandler.java:728)
-	at org.apache.mina.filter.ssl.SslHandler.unwrapHandshake(SslHandler.java:666)
-	at org.apache.mina.filter.ssl.SslHandler.handshake(SslHandler.java:552)
-	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:351)
-	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:468)
-	... 15 more
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=218 cap=256: 00 00 00 D6 AC ED 00 05 73 72 01 00 30 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=144 cap=256: 00 00 00 8C AC ED 00 05 73 72 01 00 31 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=95 cap=133: 00 00 00 5B AC ED 00 05 73 72 01 00 2A 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=375 cap=512: 00 00 01 73 AC ED 00 05 73 72 01 00 28 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=98 cap=136: 00 00 00 5E AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=295 cap=512: 00 00 01 23 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=406 cap=444: 00 00 01 92 AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=174 cap=256: 00 00 00 AA AC ED 00 05 73 72 01 00 39 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=140 cap=178: 00 00 00 88 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=426 cap=512: 00 00 01 A6 AC ED 00 05 73 72 01 00 2C 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=95 cap=133: 00 00 00 5B AC ED 00 05 73 72 01 00 2A 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=375 cap=512: 00 00 01 73 AC ED 00 05 73 72 01 00 28 64 61 74...]
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=98 cap=136: 00 00 00 5E AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=295 cap=512: 00 00 01 23 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=405 cap=443: 00 00 01 91 AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=174 cap=256: 00 00 00 AA AC ED 00 05 73 72 01 00 39 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=95 cap=133: 00 00 00 5B AC ED 00 05 73 72 01 00 2A 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=375 cap=512: 00 00 01 73 AC ED 00 05 73 72 01 00 28 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=98 cap=136: 00 00 00 5E AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=295 cap=512: 00 00 01 23 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=296 cap=334: 00 00 01 24 AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=296 cap=334: 00 00 01 24 AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=296 cap=334: 00 00 01 24 AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=296 cap=334: 00 00 01 24 AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=95 cap=133: 00 00 00 5B AC ED 00 05 73 72 01 00 2A 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=375 cap=512: 00 00 01 73 AC ED 00 05 73 72 01 00 28 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=98 cap=136: 00 00 00 5E AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=295 cap=512: 00 00 01 23 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
 INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - CREATED
 INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - OPENED
 INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=140 cap=178: 00 00 00 88 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=426 cap=512: 00 00 01 A6 AC ED 00 05 73 72 01 00 2C 64 61 74...]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-5 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-1 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-1 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-1 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-1 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=95 cap=133: 00 00 00 5B AC ED 00 05 73 72 01 00 2A 64 61 74...]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=375 cap=512: 00 00 01 73 AC ED 00 05 73 72 01 00 28 64 61 74...]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=98 cap=136: 00 00 00 5E AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=295 cap=512: 00 00 01 23 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=288 cap=326: 00 00 01 1C AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=288 cap=326: 00 00 01 1C AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=140 cap=178: 00 00 00 88 AC ED 00 05 73 72 01 00 2B 64 61 74...]
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=426 cap=512: 00 00 01 A6 AC ED 00 05 73 72 01 00 2C 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=95 cap=133: 00 00 00 5B AC ED 00 05 73 72 01 00 2A 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=375 cap=512: 00 00 01 73 AC ED 00 05 73 72 01 00 28 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=98 cap=136: 00 00 00 5E AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=295 cap=512: 00 00 01 23 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=292 cap=330: 00 00 01 20 AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=153 cap=256: 00 00 00 95 AC ED 00 05 73 72 01 00 39 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=408 cap=446: 00 00 01 94 AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=174 cap=256: 00 00 00 AA AC ED 00 05 73 72 01 00 39 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=95 cap=133: 00 00 00 5B AC ED 00 05 73 72 01 00 2A 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=375 cap=512: 00 00 01 73 AC ED 00 05 73 72 01 00 28 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=98 cap=136: 00 00 00 5E AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=295 cap=512: 00 00 01 23 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=415 cap=453: 00 00 01 9B AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=174 cap=256: 00 00 00 AA AC ED 00 05 73 72 01 00 39 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=95 cap=133: 00 00 00 5B AC ED 00 05 73 72 01 00 2A 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=375 cap=512: 00 00 01 73 AC ED 00 05 73 72 01 00 28 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=98 cap=136: 00 00 00 5E AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=295 cap=512: 00 00 01 23 AC ED 00 05 73 72 01 00 2E 64 61 74...]
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=403 cap=441: 00 00 01 8F AC ED 00 05 73 72 01 00 38 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=174 cap=256: 00 00 00 AA AC ED 00 05 73 72 01 00 39 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=208 cap=246: 00 00 00 CC AC ED 00 05 73 72 01 00 30 64 61 74...]
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=144 cap=256: 00 00 00 8C AC ED 00 05 73 72 01 00 31 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=136 cap=174: 00 00 00 84 AC ED 00 05 73 72 01 00 35 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=150 cap=256: 00 00 00 92 AC ED 00 05 73 72 01 00 36 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=109 cap=147: 00 00 00 69 AC ED 00 05 73 72 01 00 35 64 61 74...]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=150 cap=256: 00 00 00 92 AC ED 00 05 73 72 01 00 36 64 61 74...]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-4 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=109 cap=147: 00 00 00 69 AC ED 00 05 73 72 01 00 35 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=150 cap=256: 00 00 00 92 AC ED 00 05 73 72 01 00 36 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=124 cap=162: 00 00 00 78 AC ED 00 05 73 72 01 00 35 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=150 cap=256: 00 00 00 92 AC ED 00 05 73 72 01 00 36 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=124 cap=162: 00 00 00 78 AC ED 00 05 73 72 01 00 35 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=150 cap=256: 00 00 00 92 AC ED 00 05 73 72 01 00 36 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=124 cap=162: 00 00 00 78 AC ED 00 05 73 72 01 00 35 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=150 cap=256: 00 00 00 92 AC ED 00 05 73 72 01 00 36 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=125 cap=163: 00 00 00 79 AC ED 00 05 73 72 01 00 35 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=461 cap=512: 00 00 01 C9 AC ED 00 05 73 72 01 00 36 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=125 cap=163: 00 00 00 79 AC ED 00 05 73 72 01 00 35 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=461 cap=512: 00 00 01 C9 AC ED 00 05 73 72 01 00 36 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=109 cap=147: 00 00 00 69 AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=141 cap=256: 00 00 00 89 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=125 cap=163: 00 00 00 79 AC ED 00 05 73 72 01 00 2C 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=140 cap=256: 00 00 00 88 AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=109 cap=147: 00 00 00 69 AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=141 cap=256: 00 00 00 89 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=125 cap=163: 00 00 00 79 AC ED 00 05 73 72 01 00 2C 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=140 cap=256: 00 00 00 88 AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=109 cap=147: 00 00 00 69 AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=141 cap=256: 00 00 00 89 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=122 cap=160: 00 00 00 76 AC ED 00 05 73 72 01 00 2C 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=140 cap=256: 00 00 00 88 AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CLOSED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=125 cap=163: 00 00 00 79 AC ED 00 05 73 72 01 00 35 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=461 cap=512: 00 00 01 C9 AC ED 00 05 73 72 01 00 36 64 61 74...]
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=109 cap=147: 00 00 00 69 AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=141 cap=256: 00 00 00 89 AC ED 00 05 73 72 01 00 2E 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - RECEIVED: HeapBuffer[pos=0 lim=124 cap=162: 00 00 00 78 AC ED 00 05 73 72 01 00 2C 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=140 cap=256: 00 00 00 88 AC ED 00 05 73 72 01 00 2D 64 61 74...]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - SENT: HeapBuffer[pos=0 lim=0 cap=0: empty]
+INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
 INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CLOSED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - CREATED
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - OPENED
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-3 org.apache.mina.filter.logging.LoggingFilter - IDLE
-INFO NioProcessor-2 org.apache.mina.filter.logging.LoggingFilter - IDLE

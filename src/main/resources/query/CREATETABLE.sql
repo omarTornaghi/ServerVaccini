@@ -5,7 +5,7 @@ CREATE TABLE TipologiaEventoAvverso(
 
 CREATE TABLE CentroVaccinale(
 	Id SERIAL PRIMARY KEY,
-	Nome varchar(30),
+	Nome varchar(30) UNIQUE,
 	NomeIndirizzo varchar(30),
 	Comune varchar(30),
 	Numero varchar(5),

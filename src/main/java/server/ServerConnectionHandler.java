@@ -71,7 +71,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter
             String codVaccinazione;
             try {
                 codVaccinazione = db.insertVaccination(v);
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 codVaccinazione = null;
             }
             RegistrationVaccinatedResponse response;
@@ -105,7 +105,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter
                     session.write(new UserLoginResponse(true, v));
                     setClientAuthenticated(session, v.getCodiceFiscale());
                 } else session.write(new UserLoginResponse(false));
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 session.write(new UserLoginResponse(false));
             }
             return;
@@ -173,7 +173,11 @@ public class ServerConnectionHandler extends IoHandlerAdapter
         if(pacchetto instanceof GetVaccinationByKeyRequest){
             GetVaccinationByKeyRequest req = (GetVaccinationByKeyRequest) pacchetto;
             try{
-                session.write(new GetVaccinationByKeyResponse(true, db.getVaccinationById(Prettier.normalizeKey(req.getKey()))));
+                Vaccinazione vaccinazione= db.getVaccinationById(Prettier.normalizeKey(req.getKey()));
+                if(vaccinazione != null)
+                    session.write(new GetVaccinationByKeyResponse(true, vaccinazione));
+                else
+                    session.write(new GetVaccinationByKeyResponse(false, null));
             }
             catch(SQLException sqlexcp){ session.write(new GetVaccinationByKeyResponse(false, null)); }
             return;
