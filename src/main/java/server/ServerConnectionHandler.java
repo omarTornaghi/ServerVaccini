@@ -223,6 +223,17 @@ public class ServerConnectionHandler extends IoHandlerAdapter
             }
             catch (SQLException excp){ session.write(new CheckEmailResponse(false)); }
         }
+        /* OPERAZIONE LIBERA */
+        if(pacchetto instanceof CheckVaccinatedCVRequest){
+            CentroVaccinale cv = ((CheckVaccinatedCVRequest)pacchetto).getCentroVaccinale();
+            Vaccinazione vaccinazione = db.getLastVaccination(getAuthVaccinated(session));
+            try{
+                session.write(new CheckVaccinatedCVResponse(cv.equals(vaccinazione.getCentroVaccinale())));
+            }
+            catch(Exception ex){
+                session.write(new CheckVaccinatedCVResponse(false));
+            }
+        }
     }
 
     /**
