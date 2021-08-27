@@ -15,7 +15,7 @@ public class RegistrationVaccinatedRequest extends Packet{
     public RegistrationVaccinatedRequest() {
     }
 
-    public RegistrationVaccinatedRequest(Vaccinazione vaccinazione, String mailVaccinato) {
+    public RegistrationVaccinatedRequest(Vaccinazione vaccinazione) {
         this.vaccinazione = vaccinazione;
     }
 
