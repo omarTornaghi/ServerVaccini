@@ -5,6 +5,7 @@ import datatypes.CentroVaccinale;
 import datatypes.Vaccinato;
 import datatypes.Vaccinazione;
 import datatypes.protocolmessages.*;
+import mail.MailHelper;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
@@ -15,11 +16,11 @@ import java.util.List;
 
 /**
  * Gestore di una connessione TCP
+ *
  * @author Tornaghi Omar
  * @version 1.0
  */
-public class ServerConnectionHandler extends IoHandlerAdapter
-{
+public class ServerConnectionHandler extends IoHandlerAdapter {
     /**
      * Istanza del dbHelper per compiere operazioni sul database
      */
@@ -27,15 +28,15 @@ public class ServerConnectionHandler extends IoHandlerAdapter
 
     /**
      * Metodo chiamato quando si verifica un eccezione
+     *
      * @param session sessione corrente
-     * @param cause causa dell'eccezione
+     * @param cause   causa dell'eccezione
      * @throws Exception eccezione verificatasi nel metodo
      */
     @Override
-    public void exceptionCaught( IoSession session, Throwable cause ) throws Exception
-    {
+    public void exceptionCaught(IoSession session, Throwable cause) throws Exception {
         //Se eccezione SSL(e.g. handshake fallito, termino la connessione
-        if(cause instanceof SSLException) {
+        if (cause instanceof SSLException) {
             System.out.println("ECCEZIONE TLS SESSION " + session.getId());
             session.close(true);
         }
@@ -43,17 +44,19 @@ public class ServerConnectionHandler extends IoHandlerAdapter
 
     /**
      * Chiamato quando arriva un messaggio
+     *
      * @param session sessione corrente
      * @param message messaggio arrivato
      * @throws Exception e.g. sessione non valida
      */
     @Override
-    public void messageReceived( IoSession session, Object message ) throws Exception {
+    public void messageReceived(IoSession session, Object message) throws Exception {
         Packet pacchetto = null;
         try {
             pacchetto = (Packet) message;
+        } catch (Exception ex) {
+            System.out.println("EXCEPTION Pacchetto non riconosciuto");
         }
-        catch(Exception ex){ System.out.println("EXCEPTION Pacchetto non riconosciuto");}
         /* OPERAZIONE LIBERA */
         if (pacchetto instanceof RegistrationCVRequest) {
             RegistrationCVRequest req = (RegistrationCVRequest) pacchetto;
@@ -77,8 +80,12 @@ public class ServerConnectionHandler extends IoHandlerAdapter
             RegistrationVaccinatedResponse response;
             if (codVaccinazione == null)
                 response = new RegistrationVaccinatedResponse(false, null);
-            else
+            else {
                 response = new RegistrationVaccinatedResponse(true, Prettier.makeReadable(codVaccinazione));
+                //Invio mail di conferma
+                if (req.getMailVaccinato() != null && req.getMailVaccinato().equals(""))
+                    MailHelper.sendEmail(req.getMailVaccinato(), "ID VACCINAZIONE PER " + v.getVaccinato().getCodiceFiscale(), "ID VACCINAZIONE: " + Prettier.makeReadable(codVaccinazione));
+            }
             session.write(response);
             return;
         }
@@ -170,16 +177,17 @@ public class ServerConnectionHandler extends IoHandlerAdapter
             return;
         }
         /* OPERAZIONE LIBERA */
-        if(pacchetto instanceof GetVaccinationByKeyRequest){
+        if (pacchetto instanceof GetVaccinationByKeyRequest) {
             GetVaccinationByKeyRequest req = (GetVaccinationByKeyRequest) pacchetto;
-            try{
-                Vaccinazione vaccinazione= db.getVaccinationById(Prettier.normalizeKey(req.getKey()));
-                if(vaccinazione != null)
+            try {
+                Vaccinazione vaccinazione = db.getVaccinationById(Prettier.normalizeKey(req.getKey()));
+                if (vaccinazione != null)
                     session.write(new GetVaccinationByKeyResponse(true, vaccinazione));
                 else
                     session.write(new GetVaccinationByKeyResponse(false, null));
+            } catch (SQLException sqlexcp) {
+                session.write(new GetVaccinationByKeyResponse(false, null));
             }
-            catch(SQLException sqlexcp){ session.write(new GetVaccinationByKeyResponse(false, null)); }
             return;
         }
         /* OPERAZIONE LIBERA */
@@ -192,45 +200,46 @@ public class ServerConnectionHandler extends IoHandlerAdapter
             return;
         }
         /* OPERAZIONE LIBERA */
-        if(pacchetto instanceof GetEVTypologiesRequest){
-            try{
+        if (pacchetto instanceof GetEVTypologiesRequest) {
+            try {
                 session.write(new GetEvTypologiesResponse(true, db.getEventTypes()));
-            }
-            catch(SQLException excp){
+            } catch (SQLException excp) {
                 session.write(new GetEvTypologiesResponse(false, null));
             }
             return;
         }
         /* OPERAZIONE LIBERA */
-        if(pacchetto instanceof GetReportRequest){
+        if (pacchetto instanceof GetReportRequest) {
             GetReportRequest req = (GetReportRequest) pacchetto;
-            try{
+            try {
                 session.write(new GetReportResponse(true, db.generateReport(req.getCv())));
+            } catch (SQLException excp) {
+                session.write(new GetReportResponse(false, null));
             }
-            catch(SQLException excp){ session.write(new GetReportResponse(false, null)); }
         }
         /* OPERAZIONE LIBERA */
-        if(pacchetto instanceof CheckUserIdRequest){
-            try{
-                session.write(new CheckUserIdResponse(db.checkUserIdExists(((CheckUserIdRequest)pacchetto).getUserId())));
+        if (pacchetto instanceof CheckUserIdRequest) {
+            try {
+                session.write(new CheckUserIdResponse(db.checkUserIdExists(((CheckUserIdRequest) pacchetto).getUserId())));
+            } catch (SQLException excp) {
+                session.write(new CheckUserIdResponse(false));
             }
-            catch (SQLException excp){ session.write(new CheckUserIdResponse(false)); }
         }
         /* OPERAZIONE LIBERA */
-        if(pacchetto instanceof CheckEmailRequest){
-            try{
-                session.write(new CheckEmailResponse(db.checkEmailExists(((CheckEmailRequest)pacchetto).getEmail())));
+        if (pacchetto instanceof CheckEmailRequest) {
+            try {
+                session.write(new CheckEmailResponse(db.checkEmailExists(((CheckEmailRequest) pacchetto).getEmail())));
+            } catch (SQLException excp) {
+                session.write(new CheckEmailResponse(false));
             }
-            catch (SQLException excp){ session.write(new CheckEmailResponse(false)); }
         }
         /* OPERAZIONE LIBERA */
-        if(pacchetto instanceof CheckVaccinatedCVRequest){
-            CentroVaccinale cv = ((CheckVaccinatedCVRequest)pacchetto).getCentroVaccinale();
+        if (pacchetto instanceof CheckVaccinatedCVRequest) {
+            CentroVaccinale cv = ((CheckVaccinatedCVRequest) pacchetto).getCentroVaccinale();
             Vaccinazione vaccinazione = db.getLastVaccination(getAuthVaccinated(session));
-            try{
+            try {
                 session.write(new CheckVaccinatedCVResponse(cv.equals(vaccinazione.getCentroVaccinale())));
-            }
-            catch(Exception ex){
+            } catch (Exception ex) {
                 session.write(new CheckVaccinatedCVResponse(false));
             }
         }
@@ -238,46 +247,49 @@ public class ServerConnectionHandler extends IoHandlerAdapter
 
     /**
      * Autentica il client(cittadino)
+     *
      * @param session sessione dove autenticarlo
-     * @param cf codice fiscale del cittadino
+     * @param cf      codice fiscale del cittadino
      */
-    private void setClientAuthenticated(IoSession session, String cf){
+    private void setClientAuthenticated(IoSession session, String cf) {
         try {
             session.setAttribute("vaccinato", db.getVaccinatedById(cf));
             session.setAttribute("login", true);
-        }
-        catch(SQLException sqlExcp){
+        } catch (SQLException sqlExcp) {
             session.setAttribute("vaccinato", null);
         }
     }
 
     /**
      * Verifica che il client sia autenticato
+     *
      * @param session sessione attuale
      * @return true se è autenticato, false altrimenti
      */
-    private boolean isClientAuthenticated(IoSession session){
+    private boolean isClientAuthenticated(IoSession session) {
         return session != null && session.getAttribute("login") != null && (boolean) session.getAttribute("login");
     }
 
     /**
      * Ottiene il vaccinato autenticato
+     *
      * @param session sessione corrente
      * @return vaccinato autenticato, null altrimenti
      */
-    private Vaccinato getAuthVaccinated(IoSession session){
-        if(session != null) return (Vaccinato) session.getAttribute("vaccinato"); else return null;
+    private Vaccinato getAuthVaccinated(IoSession session) {
+        if (session != null) return (Vaccinato) session.getAttribute("vaccinato");
+        else return null;
     }
 
     /**
      * Metodo chiamato quando il client è in stato di IDLE
+     *
      * @param session sessione corrente
-     * @param status stato della sessione
+     * @param status  stato della sessione
      * @throws Exception e.g. sessione non valida
      */
     @Override
-    public void sessionIdle( IoSession session, IdleStatus status ) throws Exception
-    {
-        System.out.println( "IDLE " + session.getIdleCount( status ));
+    public void sessionIdle(IoSession session, IdleStatus status) throws Exception {
+        System.out.println("IDLE " + session.getIdleCount(status));
     }
 }

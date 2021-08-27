@@ -1,3 +1,4 @@
+import mail.MailHelper;
 import server.Initializer;
 import server.ServerHandler;
 
