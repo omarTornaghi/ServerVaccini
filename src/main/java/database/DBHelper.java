@@ -163,7 +163,7 @@ public class DBHelper {
             statement.setString(2, v.getNome());
             statement.setString(3, v.getCognome());
             statement.setString(4, null);
-            statement.setString(5, null);
+            statement.setString(5, v.getEmail());
             statement.setString(6, null);
             if (statement.executeUpdate() < 1) return null;
         }

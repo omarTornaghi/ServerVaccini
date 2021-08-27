@@ -83,8 +83,9 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
             else {
                 response = new RegistrationVaccinatedResponse(true, Prettier.makeReadable(codVaccinazione));
                 //Invio mail di conferma
-                if (req.getMailVaccinato() != null && req.getMailVaccinato().equals(""))
-                    MailHelper.sendEmail(req.getMailVaccinato(), "ID VACCINAZIONE PER " + v.getVaccinato().getCodiceFiscale(), "ID VACCINAZIONE: " + Prettier.makeReadable(codVaccinazione));
+                String email = req.getVaccinazione().getVaccinato().getEmail();
+                if (email != null && email.equals(""))
+                    MailHelper.sendEmail(email, "ID VACCINAZIONE PER " + v.getVaccinato().getCodiceFiscale(), "ID VACCINAZIONE: " + Prettier.makeReadable(codVaccinazione));
             }
             session.write(response);
             return;
