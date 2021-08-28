@@ -156,6 +156,8 @@ public class DBHelper {
         ResultSet result = statement.executeQuery();
         if (!result.next()) {
             //Non ho trovato un vaccinato, lo creo
+            String em = v.getEmail().replace(" ", "");
+            v.setEmail(em.equals("") ? null : em);
             statement = connection.prepareStatement("INSERT INTO vaccinato(\n" +
                     "\tcodicefiscale, nome, cognome, userid, email, password)\n" +
                     "\tVALUES (?, ?, ?, ?, ?, ?);");

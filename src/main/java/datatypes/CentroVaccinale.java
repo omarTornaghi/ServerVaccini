@@ -107,16 +107,6 @@ public class CentroVaccinale implements Serializable {
 
     @Override
     public String toString() {
-        return "CentroVaccinale{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", nomeIndirizzo='" + nomeIndirizzo + '\'' +
-                ", comune='" + comune + '\'' +
-                ", numero='" + numero + '\'' +
-                ", qualificatore='" + qualificatore + '\'' +
-                ", siglaProvincia='" + siglaProvincia + '\'' +
-                ", cap='" + cap + '\'' +
-                ", tipologia='" + tipologia + '\'' +
-                '}';
+        return "NOME: \"" + nome + "\" COMUNE: \"" + comune + "\"";
     }
 }

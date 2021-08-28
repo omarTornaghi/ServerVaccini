@@ -78,16 +78,19 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
                 codVaccinazione = null;
             }
             RegistrationVaccinatedResponse response;
-            if (codVaccinazione == null)
+            if (codVaccinazione == null) {
                 response = new RegistrationVaccinatedResponse(false, null);
+                session.write(response);
+            }
             else {
                 response = new RegistrationVaccinatedResponse(true, Prettier.makeReadable(codVaccinazione));
+                session.write(response);
                 //Invio mail di conferma
                 String email = req.getVaccinazione().getVaccinato().getEmail();
                 if (email != null && !email.equals(""))
                     MailHelper.sendEmail(email, "ID VACCINAZIONE PER " + v.getVaccinato().getCodiceFiscale(), "ID VACCINAZIONE: " + Prettier.makeReadable(codVaccinazione));
             }
-            session.write(response);
+
             return;
         }
         /* OPERAZIONE LIBERA */
@@ -134,6 +137,9 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
             }
             session.write(response);
             return;
+        }
+        if(pacchetto instanceof UserDisconnectRequest){
+            session.write(new UserDisconnectResponse(resetClientAuthenticated(session)));
         }
         /* OPERAZIONE LIBERA */
         if (pacchetto instanceof GetCVByNameRequest) {
@@ -237,12 +243,24 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
         /* OPERAZIONE LIBERA */
         if (pacchetto instanceof CheckVaccinatedCVRequest) {
             CentroVaccinale cv = ((CheckVaccinatedCVRequest) pacchetto).getCentroVaccinale();
-            Vaccinazione vaccinazione = db.getLastVaccination(getAuthVaccinated(session));
             try {
+                Vaccinazione vaccinazione = db.getLastVaccination(getAuthVaccinated(session));
                 session.write(new CheckVaccinatedCVResponse(cv.equals(vaccinazione.getCentroVaccinale())));
             } catch (Exception ex) {
                 session.write(new CheckVaccinatedCVResponse(false));
             }
+        }
+    }
+
+    private boolean resetClientAuthenticated(IoSession session){
+        try{
+            session.setAttribute("vaccinato", null);
+            session.setAttribute("login", false);
+            return true;
+        }
+        catch(Exception ex){
+            System.out.println("Session error");
+            return false;
         }
     }
 
