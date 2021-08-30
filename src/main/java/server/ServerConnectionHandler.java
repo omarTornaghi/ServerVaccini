@@ -62,7 +62,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
             RegistrationCVRequest req = (RegistrationCVRequest) pacchetto;
             try {
                 session.write(new RegistrationCVResponse(db.insertCV(req.getCv())));
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 session.write(new RegistrationCVResponse(false));
             }
             return;
@@ -101,7 +101,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
                 boolean esito = db.registerUser(req.getVaccinato(), Prettier.normalizeKey(req.getKey()));
                 if (esito) setClientAuthenticated(session, req.getVaccinato().getCodiceFiscale());
                 response = new UserRegistrationResponse(esito);
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 response = new UserRegistrationResponse(false);
             }
             session.write(response);
@@ -132,7 +132,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
             try {
                 boolean esito = db.insertEvent(req.getEventoAvverso(), getAuthVaccinated(session));
                 response = new RegistrationEVResponse(esito);
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 response = new RegistrationEVResponse(false);
             }
             session.write(response);
@@ -140,6 +140,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
         }
         if(pacchetto instanceof UserDisconnectRequest){
             session.write(new UserDisconnectResponse(resetClientAuthenticated(session)));
+            return;
         }
         /* OPERAZIONE LIBERA */
         if (pacchetto instanceof GetCVByNameRequest) {
@@ -149,7 +150,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
             try {
                 list = db.getCV(req.getNome());
                 esito = true;
-            } catch (SQLException ignored) {
+            } catch (Exception ignored) {
             } finally {
                 session.write(new GetCVResponse(esito, list));
             }
@@ -163,7 +164,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
             try {
                 list = db.getCV(req.getMunicipality(), req.getTypology());
                 esito = true;
-            } catch (SQLException ignored) {
+            } catch (Exception ignored) {
             } finally {
                 session.write(new GetCVResponse(esito, list));
             }
@@ -177,7 +178,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
             try {
                 list = db.getCV();
                 esito = true;
-            } catch (SQLException ignored) {
+            } catch (Exception ignored) {
             } finally {
                 session.write(new GetCVResponse(esito, list));
             }
@@ -192,7 +193,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
                     session.write(new GetVaccinationByKeyResponse(true, vaccinazione));
                 else
                     session.write(new GetVaccinationByKeyResponse(false, null));
-            } catch (SQLException sqlexcp) {
+            } catch (Exception sqlexcp) {
                 session.write(new GetVaccinationByKeyResponse(false, null));
             }
             return;
@@ -201,7 +202,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
         if (pacchetto instanceof GetVaccinesRequest) {
             try {
                 session.write(new GetVaccinesResponse(true, db.getVaccines()));
-            } catch (SQLException excp) {
+            } catch (Exception excp) {
                 session.write(new GetVaccinesResponse(false, null));
             }
             return;
@@ -210,7 +211,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
         if (pacchetto instanceof GetEVTypologiesRequest) {
             try {
                 session.write(new GetEvTypologiesResponse(true, db.getEventTypes()));
-            } catch (SQLException excp) {
+            } catch (Exception excp) {
                 session.write(new GetEvTypologiesResponse(false, null));
             }
             return;
@@ -220,7 +221,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
             GetReportRequest req = (GetReportRequest) pacchetto;
             try {
                 session.write(new GetReportResponse(true, db.generateReport(req.getCv())));
-            } catch (SQLException excp) {
+            } catch (Exception excp) {
                 session.write(new GetReportResponse(false, null));
             }
         }
@@ -228,7 +229,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
         if (pacchetto instanceof CheckUserIdRequest) {
             try {
                 session.write(new CheckUserIdResponse(db.checkUserIdExists(((CheckUserIdRequest) pacchetto).getUserId())));
-            } catch (SQLException excp) {
+            } catch (Exception excp) {
                 session.write(new CheckUserIdResponse(false));
             }
         }
@@ -236,7 +237,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
         if (pacchetto instanceof CheckEmailRequest) {
             try {
                 session.write(new CheckEmailResponse(db.checkEmailExists(((CheckEmailRequest) pacchetto).getEmail())));
-            } catch (SQLException excp) {
+            } catch (Exception excp) {
                 session.write(new CheckEmailResponse(false));
             }
         }
@@ -274,7 +275,7 @@ public class ServerConnectionHandler extends IoHandlerAdapter {
         try {
             session.setAttribute("vaccinato", db.getVaccinatedById(cf));
             session.setAttribute("login", true);
-        } catch (SQLException sqlExcp) {
+        } catch (Exception sqlExcp) {
             session.setAttribute("vaccinato", null);
         }
     }
