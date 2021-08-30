@@ -6,6 +6,7 @@ import java.io.*;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Locale;
+import java.util.Scanner;
 
 /**
  * Classe per inizializzare i vari componenti
@@ -31,11 +32,15 @@ public class Initializer {
         if(!file.exists()) {
             try {
                 //TODO Prendo in input questi campi
-                user = "admin";
-                password = "admin";
-                host = "localhost";
-                nomeDB = "VacciniDB";
-
+                Scanner in = new Scanner(System.in);
+                System.out.print("User: ");
+                user = in.next();
+                System.out.print("Password: ");
+                password = in.next();
+                System.out.print("Host: ");
+                host = in.next();
+                System.out.print("Nome del database: ");
+                nomeDB = in.next();
                 host = host.toLowerCase(Locale.ROOT);
                 nomeDB = nomeDB.toLowerCase(Locale.ROOT);
                 inizializzazioneCompletata = DBHelper.getInstance().initialize(user, password, host, nomeDB);
