@@ -20,7 +20,7 @@ public class Initializer {
      * @throws IOException eccezioni input/output
      */
     public static boolean initialize() throws IOException {
-        boolean inizializzazioneCompletata = true;
+        boolean inizializzazioneCompletata;
         String user;
         String password;
         String host;
@@ -31,7 +31,6 @@ public class Initializer {
         File file = new File(filePath);
         if(!file.exists()) {
             try {
-                //TODO Prendo in input questi campi
                 Scanner in = new Scanner(System.in);
                 System.out.print("User: ");
                 user = in.next();
