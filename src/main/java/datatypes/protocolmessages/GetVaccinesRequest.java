@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * richiede la lista di vaccini disponibili
  * @author Tornaghi Omar
  * @version 1.0
  */

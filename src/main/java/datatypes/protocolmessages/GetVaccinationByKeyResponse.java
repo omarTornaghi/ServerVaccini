@@ -4,6 +4,7 @@ import datatypes.Vaccinazione;
 
 /**
  * Classe model per scambio di messaggi
+ * contiene la vaccinazione richiesta da GetVaccinationByKeyRequest
  * @author Tornaghi Omar
  * @version 1.0
  */

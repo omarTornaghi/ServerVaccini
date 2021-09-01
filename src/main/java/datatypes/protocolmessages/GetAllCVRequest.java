@@ -2,6 +2,7 @@ package datatypes.protocolmessages;
 
 /**
  * Classe model per scambio di messaggi
+ * richiede la lista di tutti i centri vaccinali
  * @author Tornaghi Omar
  * @version 1.0
  */

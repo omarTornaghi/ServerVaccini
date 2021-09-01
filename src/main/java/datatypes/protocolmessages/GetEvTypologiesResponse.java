@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Classe model per scambio di messaggi
+ * Contiene le tipologie di evento avverso
  * @author Tornaghi Omar
  * @version 1.0
  */

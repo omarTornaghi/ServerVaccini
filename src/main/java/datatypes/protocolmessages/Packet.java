@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Classe model per scambio di messaggi
+ * Classe base, identifica un pacchetto
  * @author Tornaghi Omar
  * @version 1.0
  */

@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * richiede la lista dei centri vaccinali che corrispondono ai parametri
  * @author Tornaghi Omar
  * @version 1.0
  */

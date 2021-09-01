@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * se l'ultimo centro vaccinale del cittadino coincide, l'esito è true, false altrimenti
  * @author Tornaghi Omar
  * @version 1.0
  */

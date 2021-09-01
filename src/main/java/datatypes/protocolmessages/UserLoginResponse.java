@@ -4,6 +4,7 @@ import datatypes.Vaccinato;
 
 /**
  * Classe model per scambio di messaggi
+ * Contiene l'esito del login di un cittadino
  * @author Tornaghi Omar
  * @version 1.0
  */

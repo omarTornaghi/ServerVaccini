@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * risposta a verifica dell'email
  * @author Tornaghi Omar
  * @version 1.0
  */

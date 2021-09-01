@@ -4,6 +4,7 @@ import datatypes.CentroVaccinale;
 
 /**
  * Classe model per scambio di messaggi
+ * Richiede la registrazione di un centro vaccinale
  * @author Tornaghi Omar
  * @version 1.0
  */

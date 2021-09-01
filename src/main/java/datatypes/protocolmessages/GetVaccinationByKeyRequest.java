@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * richiede i dati di una vaccinazione che ha id come quello specificato
  * @author Tornaghi Omar
  * @version 1.0
  */

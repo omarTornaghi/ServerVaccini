@@ -5,6 +5,7 @@ import datatypes.Vaccinazione;
 
 /**
  * Classe model per scambio di messaggi
+ * Richiede la registrazione di una nuova vaccinazione
  * @author Tornaghi Omar
  * @version 1.0
  */

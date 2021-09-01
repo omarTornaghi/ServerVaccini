@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * Contiene l'esito di una registrazione di centro vaccinale
  * @author Tornaghi Omar
  * @version 1.0
  */

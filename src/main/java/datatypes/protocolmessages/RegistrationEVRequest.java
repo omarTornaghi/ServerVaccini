@@ -4,6 +4,7 @@ import datatypes.EventoAvverso;
 
 /**
  * Classe model per scambio di messaggi
+ * richiede la registrazione di un evento avverso
  * @author Tornaghi Omar
  * @version 1.0
  */

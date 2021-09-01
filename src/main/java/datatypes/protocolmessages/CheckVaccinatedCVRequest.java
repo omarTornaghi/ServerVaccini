@@ -4,6 +4,7 @@ import datatypes.CentroVaccinale;
 
 /**
  * Classe model per scambio di messaggi
+ * richiede la verifica dell'ultimo centro vaccinale di un cittadino
  * @author Tornaghi Omar
  * @version 1.0
  */

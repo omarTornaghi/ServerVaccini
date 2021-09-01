@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * Richiede il login di un cittadino
  * @author Tornaghi Omar
  * @version 1.0
  */

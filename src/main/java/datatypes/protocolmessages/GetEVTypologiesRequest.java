@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * richiede le tipologie di eventi avversi
  * @author Tornaghi Omar
  * @version 1.0
  */

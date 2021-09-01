@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Classe model per scambio di messaggi
+ * contiene la lista dei vaccini disponibili
  * @author Tornaghi Omar
  * @version 1.0
  */

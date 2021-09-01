@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Classe model per scambio di messaggi
+ * risposta a getAllCV, getCVBy..., contiene la lista con i centri vaccinali trovati
  * @author Tornaghi Omar
  * @version 1.0
  */

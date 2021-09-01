@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * Classe base, viene utilizzato per le risposte
  * @author Tornaghi Omar
  * @version 1.0
  */

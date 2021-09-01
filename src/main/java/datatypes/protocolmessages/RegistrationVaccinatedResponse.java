@@ -1,6 +1,7 @@
 package datatypes.protocolmessages;
 /**
  * Classe model per scambio di messaggi
+ * Contiene l'esito della registrazione di una nuova vaccinazione
  * @author Tornaghi Omar
  * @version 1.0
  */

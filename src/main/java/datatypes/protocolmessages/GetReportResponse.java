@@ -4,6 +4,7 @@ import datatypes.ReportCV;
 
 /**
  * Classe model per scambio di messaggi
+ * contiene il report di un centro vaccinale
  * @author Tornaghi Omar
  * @version 1.0
  */
