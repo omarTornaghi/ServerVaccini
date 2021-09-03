@@ -70,8 +70,13 @@ public class DBHelper {
         }
         catch(SQLException sqlexcp){
             System.out.println("Il database " + nomeDB + " esiste già");
-            System.out.println("Terminazione procedura di inizializzazione DB");
-            return true;
+            if(connect(user,password,host,nomeDB)){
+                System.out.println("Connessione al database " + nomeDB + " riuscita");
+                System.out.println("Terminazione procedura di inizializzazione DB");
+                return true;
+            }
+            System.out.println("Impossibile connettersi al database " + nomeDB + " con le credenziali fornite");
+            return false;
         }
         //Creo le tabelle nel database
         String queryCREATE = "";
