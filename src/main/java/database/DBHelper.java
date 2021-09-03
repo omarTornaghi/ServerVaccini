@@ -60,7 +60,7 @@ public class DBHelper {
             connection = DriverManager.getConnection(url, user, password);
         }
         catch(SQLException sqlexcp){
-            System.out.println("Impossibile creare il database(database postgres non trovato)");
+            System.out.println("Impossibile creare il database(database postgres non trovato oppure credenziali errate)");
             return false;
         }
         try {
