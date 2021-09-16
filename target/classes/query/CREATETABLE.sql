@@ -35,7 +35,7 @@ CREATE TABLE Vaccinato(
 	Nome varchar(20) NOT NULL,
 	Cognome varchar(30) NOT NULL,
 	UserId varchar(25) UNIQUE,
-	email varchar(30) UNIQUE,
+	email varchar(50) UNIQUE,
 	password varchar(64)
 );
 
